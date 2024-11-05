@@ -7,6 +7,8 @@
     <img alt="Static Badge" src="https://img.shields.io/badge/NextAuth-gray?logo=auth0">
 </p>
 
+[TailwindCSS Motion](https://github.com/romboHQ/tailwindcss-motion)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
