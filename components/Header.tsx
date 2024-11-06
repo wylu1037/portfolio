@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { IconChevronsRight, IconGripVertical } from "@tabler/icons-react";
 
 interface HeaderProps {
-  title: string;
+  title?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
@@ -14,23 +15,23 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         {/* Home */}
         <div className="flex items-center gap-2">
           <IconGripVertical className="h-5 w-5 cursor-grab text-gray-300 hover:text-gray-500" />
-          <a
-            href="#"
+          <Link
+            href="/"
             className="rounded-md px-2 py-1 font-semibold text-stone-600 hover:bg-stone-200"
           >
             Home
-          </a>
+          </Link>
         </div>
         {/* About */}
-        <a
-          href="#"
+        <Link
+          href="/about"
           className="rounded-md px-2 py-1 font-semibold text-stone-600 hover:bg-stone-200"
         >
           About
-        </a>
+        </Link>
         {/* Projects */}
-        <a
-          href="#"
+        <Link
+          href="/projects"
           className="flex rounded-md px-2 py-1 text-lg font-bold text-gray-900"
         >
           <p className="motion-preset-oscillate motion-duration-[2s]">P</p>
@@ -51,21 +52,21 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
           <p className="motion-preset-oscillate motion-duration-[2s] motion-delay-75">
             s
           </p>
-        </a>
+        </Link>
         {/* Blog */}
-        <a
-          href="#"
+        <Link
+          href="/blog"
           className="rounded-md px-2 py-1 font-semibold text-stone-600 hover:bg-stone-200"
         >
           Blog
-        </a>
+        </Link>
         {/* Contact */}
-        <a
-          href="#"
+        <Link
+          href="/contact"
           className="flex items-center gap-1 rounded-md bg-yellow-200 px-4 py-1 font-semibold text-stone-700 hover:bg-gray-100"
         >
           Contact <IconChevronsRight className="h-4 w-4" />
-        </a>
+        </Link>
       </nav>
     </header>
   );
