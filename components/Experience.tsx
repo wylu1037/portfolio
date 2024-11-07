@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import SectionTitle from "./shared/SectionTitle";
+import Container from "./shared/Container";
+import Wrapper from "./shared/Wrapper";
 
 const Experience = () => {
   const data = [
@@ -149,10 +151,12 @@ const Experience = () => {
     },
   ];
   return (
-    <div className="mt-28 w-full">
-      <SectionTitle>Experiences</SectionTitle>
-      <Timeline data={data} />
-    </div>
+    <Wrapper className="mt-28">
+      <Container>
+        <SectionTitle>Experiences</SectionTitle>
+        <Timeline data={data} />
+      </Container>
+    </Wrapper>
   );
 };
 
