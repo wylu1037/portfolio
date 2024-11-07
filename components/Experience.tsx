@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import SectionTitle from "./shared/SectionTitle";
 
 const Experience = () => {
   const data = [
@@ -149,7 +150,7 @@ const Experience = () => {
   ];
   return (
     <div className="mt-28 w-full">
-      <h1 className="text-center text-2xl font-bold">Experiences</h1>
+      <SectionTitle>Experiences</SectionTitle>
       <Timeline data={data} />
     </div>
   );
