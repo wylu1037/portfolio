@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
+import { ThemeToggle } from "../theme/theme-toggle";
 
 const Footer = memo(() => {
   return (
@@ -46,12 +47,13 @@ const Footer = memo(() => {
           </ul>
         </div>
         <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
-        <span className="block text-sm text-gray-500 dark:text-gray-400 sm:text-center">
+        <span className="flex items-center justify-center text-sm text-gray-500 dark:text-gray-400 sm:text-center">
           © 2024{" "}
           <Link href="#" className="hover:underline">
             WenyangLu™
           </Link>
           . All Rights Reserved.
+          <ThemeToggle />
         </span>
       </div>
     </footer>
