@@ -4,11 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { IconChevronsRight, IconGripVertical } from "@tabler/icons-react";
 
-interface HeaderProps {
-  title?: string;
-}
 
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header = () => {
   return (
     <header className="relative z-50">
       <nav className="fixed left-1/2 top-4 flex -translate-x-1/2 items-center justify-between gap-4 rounded-full border-2 border-gray-100 px-6 py-1 shadow-lg backdrop-blur-xl">

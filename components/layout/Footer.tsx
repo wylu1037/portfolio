@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Footer = () => {
   return (
     <footer className="border-t border-gray-200 bg-white dark:bg-gray-900">
@@ -7,7 +9,7 @@ const Footer = () => {
             href="#"
             className="mb-4 flex items-center space-x-3 sm:mb-0 rtl:space-x-reverse"
           >
-            <img
+            <Image
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8"
               alt="Flowbite Logo"
