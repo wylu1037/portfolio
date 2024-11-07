@@ -1,23 +1,27 @@
 import Image from "next/image";
+import Link from "next/link";
+import { memo } from "react";
 
-const Footer = () => {
+const Footer = memo(() => {
   return (
-    <footer className="border-t border-gray-200 bg-white dark:bg-gray-900">
+    <footer className="border-gray-200 bg-white dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <a
+          <Link
             href="#"
             className="mb-4 flex items-center space-x-3 sm:mb-0 rtl:space-x-reverse"
           >
             <Image
               src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
+              width={32}
+              height={32}
               alt="Flowbite Logo"
+              priority
             />
             <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
               WenyangLu
             </span>
-          </a>
+          </Link>
           <ul className="mb-6 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mb-0">
             <li>
               <a href="#" className="me-4 hover:underline md:me-6">
@@ -25,33 +29,33 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="me-4 hover:underline md:me-6">
+              <Link href="#" className="me-4 hover:underline md:me-6">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="me-4 hover:underline md:me-6">
+              <Link href="#" className="me-4 hover:underline md:me-6">
                 Licensing
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="me-4 hover:underline">
+              <Link href="#" className="me-4 hover:underline">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
         <span className="block text-sm text-gray-500 dark:text-gray-400 sm:text-center">
           © 2024{" "}
-          <a href="#" className="hover:underline">
+          <Link href="#" className="hover:underline">
             WenyangLu™
-          </a>
+          </Link>
           . All Rights Reserved.
         </span>
       </div>
     </footer>
   );
-};
+});
 
 export default Footer;
