@@ -52,8 +52,8 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              I'm always open to discussing new opportunities and ideas. Feel
-              free to reach out.
+              I&apos;m always open to discussing new opportunities and ideas.
+              Feel free to reach out.
             </motion.p>
           </div>
 

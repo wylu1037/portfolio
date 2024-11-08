@@ -2,11 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  IconChevronsRight,
-  IconGripVertical,
-  IconSend,
-} from "@tabler/icons-react";
+import { IconGripVertical, IconSend } from "@tabler/icons-react";
 
 const Header = () => {
   return (
