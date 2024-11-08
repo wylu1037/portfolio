@@ -7,6 +7,10 @@
     <img alt="Static Badge" src="https://img.shields.io/badge/NextAuth-gray?logo=auth0">
 </p>
 
+<br>
+<img src="./public/home.png"/>
+<br>
+
 [TailwindCSS Motion](https://github.com/romboHQ/tailwindcss-motion)
 
 [Online Custom TailwindCSS Animations](https://rombo.co/tailwind/)
