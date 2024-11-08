@@ -7,7 +7,7 @@ interface SectionTitleProps {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ children, className }) => {
   return (
-    <div className="flex justify-center">
+    <div className="justify-start">
       <h2
         className={cn(
           className,

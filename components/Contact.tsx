@@ -44,7 +44,7 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Get in Touch
+              Let&apos;s Connect
             </motion.h1>
             <motion.p
               className="text-lg text-muted-foreground"
@@ -52,7 +52,8 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Something on your mind? Feel free to drop me a message.
+              I'm always open to discussing new opportunities and ideas. Feel
+              free to reach out.
             </motion.p>
           </div>
 
@@ -86,9 +87,9 @@ export default function Contact() {
                 </Label>
                 <Input
                   id="name"
-                  placeholder="Enter your name"
+                  placeholder="Your full name"
                   required
-                  className="border-border focus:border-gray-400 focus:ring-gray-400"
+                  className="border-border focus:border-border focus:ring-ring"
                 />
               </div>
               <div className="space-y-2">
@@ -98,9 +99,9 @@ export default function Contact() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Your email address"
                   required
-                  className="border-border focus:border-gray-400 focus:ring-gray-400"
+                  className="border-border focus:border-border focus:ring-ring"
                 />
               </div>
             </div>
@@ -110,13 +111,17 @@ export default function Contact() {
                 Subject
               </Label>
               <Select>
-                <SelectTrigger className="border-border focus:border-gray-400 focus:ring-gray-400">
-                  <SelectValue placeholder="Select a subject" />
+                <SelectTrigger className="border-border focus:border-border focus:ring-ring">
+                  <SelectValue placeholder="Select the purpose of contact" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="general">General Inquiry</SelectItem>
-                  <SelectItem value="support">Technical Support</SelectItem>
-                  <SelectItem value="billing">Billing Question</SelectItem>
+                  <SelectItem value="full-time">
+                    Full-time Opportunity
+                  </SelectItem>
+                  <SelectItem value="part-time">Part-time Position</SelectItem>
+                  <SelectItem value="remote">Remote Work</SelectItem>
+                  <SelectItem value="freelance">Freelance Project</SelectItem>
+                  <SelectItem value="collaboration">Collaboration</SelectItem>
                   <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
@@ -130,7 +135,7 @@ export default function Contact() {
                 id="message"
                 placeholder="Enter your message"
                 required
-                className="min-h-[150px] border-border focus:border-gray-400 focus:ring-ring"
+                className="min-h-[150px] border-border focus:border-border focus:ring-ring"
               />
             </div>
 
@@ -153,7 +158,7 @@ export default function Contact() {
 
             <Button
               type="submit"
-              className="w-full bg-foreground text-background transition-colors hover:bg-foreground hover:text-background"
+              className="w-full bg-foreground text-background transition-colors hover:bg-foreground hover:text-background dark:bg-blue-500 dark:font-semibold dark:text-white"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
