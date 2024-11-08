@@ -11,7 +11,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ children, className }) => {
       <h2
         className={cn(
           className,
-          "mx-auto text-2xl font-semibold text-neutral-700 dark:text-white",
+          "mx-auto text-xl font-semibold text-foreground",
         )}
       >
         {children}

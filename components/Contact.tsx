@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white px-4 py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-background px-4 py-12 sm:px-6 lg:px-8">
       <motion.div
         className="mx-auto max-w-3xl"
         initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function Contact() {
         <div className="space-y-8">
           <div>
             <motion.h1
-              className="mb-2 text-4xl font-bold text-black"
+              className="mb-2 text-3xl font-bold text-foreground"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
@@ -47,7 +47,7 @@ export default function Contact() {
               Get in Touch
             </motion.h1>
             <motion.p
-              className="text-lg text-gray-600"
+              className="text-lg text-muted-foreground"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
@@ -63,36 +63,36 @@ export default function Contact() {
             transition={{ delay: 0.4 }}
           >
             <div>
-              <h2 className="text-lg font-semibold text-black">Email</h2>
-              <p className="text-gray-600">wylu1037@gmail.com</p>
+              <h2 className="text-lg font-semibold text-foreground">Email</h2>
+              <p className="text-muted-foreground">wylu1037@gmail.com</p>
             </div>
             <div>
-              <h2 className="text-lg font-semibold text-black">Phone</h2>
-              <p className="text-gray-600">+86 155 4947 2950</p>
+              <h2 className="text-lg font-semibold text-foreground">Phone</h2>
+              <p className="text-muted-foreground">+86 155 4947 2950</p>
             </div>
           </motion.div>
 
           <motion.form
             onSubmit={handleSubmit}
-            className="space-y-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm"
+            className="space-y-6 rounded-xl border border-border bg-background p-6 shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-black">
+                <Label htmlFor="name" className="text-foreground">
                   Name
                 </Label>
                 <Input
                   id="name"
                   placeholder="Enter your name"
                   required
-                  className="border-gray-200 focus:border-gray-400 focus:ring-gray-400"
+                  className="border-border focus:border-gray-400 focus:ring-gray-400"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-black">
+                <Label htmlFor="email" className="text-foreground">
                   Email
                 </Label>
                 <Input
@@ -100,17 +100,17 @@ export default function Contact() {
                   type="email"
                   placeholder="Enter your email"
                   required
-                  className="border-gray-200 focus:border-gray-400 focus:ring-gray-400"
+                  className="border-border focus:border-gray-400 focus:ring-gray-400"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="subject" className="text-black">
+              <Label htmlFor="subject" className="text-foreground">
                 Subject
               </Label>
               <Select>
-                <SelectTrigger className="border-gray-200 focus:border-gray-400 focus:ring-gray-400">
+                <SelectTrigger className="border-border focus:border-gray-400 focus:ring-gray-400">
                   <SelectValue placeholder="Select a subject" />
                 </SelectTrigger>
                 <SelectContent>
@@ -123,14 +123,14 @@ export default function Contact() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message" className="text-black">
+              <Label htmlFor="message" className="text-foreground">
                 Message
               </Label>
               <Textarea
                 id="message"
                 placeholder="Enter your message"
                 required
-                className="min-h-[150px] border-gray-200 focus:border-gray-400 focus:ring-gray-400"
+                className="min-h-[150px] border-border focus:border-gray-400 focus:ring-ring"
               />
             </div>
 
@@ -138,11 +138,14 @@ export default function Contact() {
               <Checkbox
                 id="terms"
                 required
-                className="border-gray-300 text-black"
+                className="border-border text-black"
               />
-              <Label htmlFor="terms" className="text-sm text-gray-600">
+              <Label htmlFor="terms" className="text-sm text-muted-foreground">
                 I agree to the{" "}
-                <Link href="#" className="text-black hover:underline">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:underline"
+                >
                   Terms and Conditions
                 </Link>
               </Label>
@@ -150,7 +153,7 @@ export default function Contact() {
 
             <Button
               type="submit"
-              className="w-full bg-black text-white transition-colors hover:bg-gray-800"
+              className="w-full bg-foreground text-background transition-colors hover:bg-foreground hover:text-background"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

@@ -9,7 +9,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children, className }) => {
   return (
     <div
       className={cn(
-        "mx-auto h-full w-full max-w-screen-xl px-4 md:px-0",
+        "mx-auto h-full w-full max-w-screen-xl bg-background px-4 text-foreground md:px-0",
         className,
       )}
     >
