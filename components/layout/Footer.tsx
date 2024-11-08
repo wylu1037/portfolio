@@ -47,7 +47,7 @@ const Footer = memo(() => {
           </ul>
         </div>
         <hr className="my-6 border-background sm:mx-auto lg:my-8" />
-        <span className="flex items-center justify-center space-x-2 text-sm text-muted-foreground sm:text-center">
+        <span className="flex items-center justify-center space-x-2 text-xs text-muted-foreground sm:text-center">
           © 2024{" "}
           <Link href="#" className="hover:underline">
             WenyangLu™
