@@ -3,10 +3,10 @@ import { memo } from "react";
 import { ThemeToggle } from "../theme/theme-toggle";
 import {
   IconBrandGithub,
-  IconBrandTwitter,
   IconBrandLinkedin,
   IconMail,
   IconHeart,
+  IconBrandX,
 } from "@tabler/icons-react";
 
 const Footer = memo(() => {
@@ -32,7 +32,7 @@ const Footer = memo(() => {
                 href="https://twitter.com"
                 className="text-muted-foreground hover:text-foreground"
               >
-                <IconBrandTwitter className="h-5 w-5" />
+                <IconBrandX className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
