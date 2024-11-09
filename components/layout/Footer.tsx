@@ -22,7 +22,7 @@ const Footer = memo(() => {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://github.com"
+                href="https://github.com/wylu1037"
                 className="text-muted-foreground hover:text-foreground"
               >
                 <IconBrandGithub className="h-5 w-5" />
