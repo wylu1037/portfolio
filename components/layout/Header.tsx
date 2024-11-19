@@ -13,7 +13,7 @@ const Header = () => {
           <IconGripVertical className="h-5 w-5 cursor-grab text-gray-300 hover:text-gray-500 dark:hover:text-foreground" />
           <Link
             href="/"
-            className="rounded-md px-2 py-1 font-medium text-foreground transition-colors duration-200 hover:bg-stone-200 dark:hover:bg-foreground dark:hover:text-background"
+            className="font-silkscreen rounded-md px-2 py-1 font-semibold text-foreground transition-colors duration-200 hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
           >
             Home
           </Link>
@@ -21,14 +21,14 @@ const Header = () => {
         {/* About */}
         <Link
           href="/about"
-          className="rounded-md px-2 py-1 font-medium text-foreground transition-colors duration-200 hover:bg-stone-200 dark:hover:bg-foreground dark:hover:text-background"
+          className="font-silkscreen rounded-md px-2 py-1 font-semibold text-foreground transition-colors duration-200 hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
         >
           About
         </Link>
         {/* Projects */}
         <Link
           href="/projects"
-          className="flex rounded-md px-2 py-1 text-lg font-medium text-foreground hover:bg-stone-200 dark:hover:bg-foreground dark:hover:text-background"
+          className="font-silkscreen flex rounded-md px-2 py-1 text-lg font-semibold text-foreground hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
         >
           <p className="motion-preset-oscillate motion-duration-[2s]">P</p>
           <p className="motion-preset-oscillate motion-duration-[2s] motion-delay-75">
@@ -52,17 +52,17 @@ const Header = () => {
         {/* Blog */}
         <Link
           href="/blog"
-          className="rounded-md px-2 py-1 font-medium text-foreground transition-colors duration-200 hover:bg-stone-200 dark:hover:bg-foreground dark:hover:text-background"
+          className="font-silkscreen rounded-md px-2 py-1 font-semibold text-foreground transition-colors duration-200 hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
         >
           Blog
         </Link>
         {/* Contact */}
         <Link
           href="/contact"
-          className="flex items-center gap-2 rounded-md px-4 py-1 font-medium text-foreground transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-foreground dark:hover:text-background"
+          className="font-silkscreen flex items-center gap-2 rounded-md px-4 py-1 font-semibold text-foreground transition-colors duration-100 hover:bg-gray-100 dark:hover:bg-foreground dark:hover:text-background"
         >
           Contact{" "}
-          <IconSend className="h-4 w-4 text-blue-500 -motion-translate-x-loop-25 motion-translate-y-loop-25 motion-duration-[3s]" />
+          {/*<IconSend className="h-4 w-4 text-blue-500 -motion-translate-x-loop-25 motion-translate-y-loop-25 motion-duration-[3s]" />*/}
         </Link>
       </nav>
     </header>

@@ -17,6 +17,10 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
+// trigger is the button that opens the modal
+// title is the title of the modal
+// description is the description of the modal
+// children is the content of the modal
 export default function Modal({
   trigger,
   title,
