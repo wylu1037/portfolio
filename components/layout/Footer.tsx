@@ -29,21 +29,21 @@ const Footer = memo(() => {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://twitter.com"
+                href="https://twitter.com/wylu1037"
                 className="text-muted-foreground hover:text-foreground"
               >
                 <IconBrandX className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/%E6%96%87%E6%89%AC-%E5%8D%A2-2b93ba298/"
                 className="text-muted-foreground hover:text-foreground"
               >
                 <IconBrandLinkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="mailto:hello@example.com"
+                href="wylu1037@gmail.com"
                 className="text-muted-foreground hover:text-foreground"
               >
                 <IconMail className="h-5 w-5" />
