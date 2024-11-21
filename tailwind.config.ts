@@ -74,6 +74,7 @@ const config = {
       },
       fontFamily: {
         silkscreen: ["var(--font-silkscreen)"],
+        goldman: ["var(--font-goldman)"],
       },
     },
   },
