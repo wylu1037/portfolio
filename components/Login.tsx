@@ -5,15 +5,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Modal from "./shared/Modal";
+import { toast } from "sonner";
 
 export default function LoginModal() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle login logic here
     console.log("Login submitted", { email, password });
+    toast.success("Login successful");
+    setOpen(false);
   };
 
   return (
@@ -21,6 +25,8 @@ export default function LoginModal() {
       trigger={<Button variant="outline">Login</Button>}
       title="Login"
       description="Enter your credentials to access your account."
+      open={open}
+      onOpenChange={setOpen}
     >
       <form onSubmit={handleSubmit} className="mt-4 space-y-4">
         <div className="space-y-2">

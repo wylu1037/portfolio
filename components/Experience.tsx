@@ -14,8 +14,8 @@ const Experience = () => {
   return (
     <Wrapper className="mt-28">
       <Container>
-        <div className="flex items-center justify-center gap-4">
-          <div>
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center gap-4">
             <NumberFlow
               value={minutes}
               className="text-4xl font-semibold"
@@ -30,12 +30,14 @@ const Experience = () => {
               locales={"en-US"}
             />
           </div>
-          <Button onClick={() => setSeconds(seconds + 1)} variant="default">
-            Increse
-          </Button>
-          <Button onClick={() => setSeconds(seconds - 1)} variant="outline">
-            Decrese
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button onClick={() => setSeconds(seconds + 1)} variant="default">
+              Increse
+            </Button>
+            <Button onClick={() => setSeconds(seconds - 1)} variant="outline">
+              Decrese
+            </Button>
+          </div>
         </div>
       </Container>
     </Wrapper>

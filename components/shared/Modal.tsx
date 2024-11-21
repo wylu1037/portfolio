@@ -15,6 +15,8 @@ interface ModalProps {
   title: string;
   description?: string;
   children: React.ReactNode;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 // trigger is the button that opens the modal
@@ -26,11 +28,11 @@ export default function Modal({
   title,
   description,
   children,
+  open,
+  onOpenChange,
 }: ModalProps) {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

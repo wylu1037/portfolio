@@ -5,7 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "next-themes";
 import { goldman, silkscreen } from "@/fonts";
-
+import { Toaster } from "sonner";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -33,6 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${silkscreen.variable} ${goldman.variable} flex min-h-screen flex-col antialiased`}
       >
         <ThemeProvider attribute="class">
+          <Toaster expand={false} position="top-right" />
           <Header />
           <main className="grow">{children}</main>
           <Footer />
