@@ -3,71 +3,63 @@
 import React from "react";
 import Link from "next/link";
 import { IconGripVertical } from "@tabler/icons-react";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   return (
     <header className="relative z-50">
-      <nav className="fixed left-1/2 top-4 flex -translate-x-1/2 items-center justify-between gap-4 rounded-full border-2 border-border px-6 py-1 shadow-lg backdrop-blur-md">
-        {/* Home */}
-        <div className="flex items-center gap-2">
-          <IconGripVertical className="h-5 w-5 cursor-grab text-gray-300 hover:text-gray-500 dark:hover:text-foreground" />
-          <Link
-            href="/"
-            className="font-goldman rounded-md px-2 py-1 font-semibold text-foreground transition-colors duration-200 hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
+      <nav className="fixed left-1/2 top-6 flex -translate-x-1/2 items-center justify-between gap-2 rounded-2xl border border-border/40 bg-white/70 px-4 py-2 shadow-lg backdrop-blur-md dark:border-border/80 dark:bg-gray-950/70 md:gap-4 md:px-6">
+        {/* Mobile Menu Button (可以在需要时添加) */}
+        <div className="lg:hidden">{/* 移动端菜单按钮 */}</div>
+
+        {/* Navigation Links */}
+        <div className="flex items-center gap-1 md:gap-3">
+          {/* Home */}
+          <div className="flex items-center gap-2">
+            <IconGripVertical className="hidden h-4 w-4 cursor-grab text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 md:block" />
+            <NavLink href="/">Home</NavLink>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden items-center gap-3 md:flex">
+            <NavLink href="/about">About</NavLink>
+            <NavLink href="/projects">Projects</NavLink>
+            <NavLink href="/blog">Blog</NavLink>
+          </div>
+
+          {/* Contact Button - 特殊样式 */}
+          <NavLink
+            href="/contact"
+            className="ml-2 bg-gradient-to-r from-blue-500/80 to-red-500/80 px-4 py-1.5 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 dark:from-blue-600 dark:to-red-600 dark:text-white"
           >
-            Home
-          </Link>
+            Contact
+          </NavLink>
         </div>
-        {/* About */}
-        <Link
-          href="/about"
-          className="font-goldman rounded-md px-2 py-1 font-semibold text-foreground transition-colors duration-200 hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
-        >
-          About
-        </Link>
-        {/* Projects */}
-        <Link
-          href="/projects"
-          className="font-goldman flex rounded-md px-2 py-1 text-lg font-semibold text-foreground hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
-        >
-          {/*<p className="motion-preset-oscillate motion-duration-[2s]">P</p>
-          <p className="motion-preset-oscillate motion-duration-[2s]">P</p>
-          <p className="motion-preset-oscillate motion-duration-[2s] motion-delay-75">
-            r
-          </p>
-          <p className="motion-preset-oscillate motion-duration-[2s] motion-delay-100">
-            o
-          </p>
-          <p className="motion-preset-oscillate motion-duration-[2s]">j</p>
-          <p className="motion-preset-oscillate motion-duration-[2s] motion-delay-75">
-            e
-          </p>
-          <p className="motion-preset-oscillate motion-duration-[2s] motion-delay-150">
-            c
-          </p>
-          <p className="motion-preset-oscillate motion-duration-[2s]">t</p>
-          <p className="motion-preset-oscillate motion-duration-[2s] motion-delay-75">
-            s
-          </p>*/}
-          Projects
-        </Link>
-        {/* Blog */}
-        <Link
-          href="/blog"
-          className="font-goldman rounded-md px-2 py-1 font-semibold text-foreground transition-colors duration-200 hover:bg-stone-100 dark:hover:bg-foreground dark:hover:text-background"
-        >
-          Blog
-        </Link>
-        {/* Contact */}
-        <Link
-          href="/contact"
-          className="font-goldman flex items-center gap-2 rounded-md px-4 py-1 font-semibold text-foreground transition-colors duration-100 hover:bg-gray-100 dark:hover:bg-foreground dark:hover:text-background"
-        >
-          Contact{" "}
-          {/*<IconSend className="h-4 w-4 text-blue-500 -motion-translate-x-loop-25 motion-translate-y-loop-25 motion-duration-[3s]" />*/}
-        </Link>
       </nav>
     </header>
+  );
+};
+
+// 抽取通用的导航链接组件
+const NavLink = ({
+  href,
+  children,
+  className = "",
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "relative rounded-lg px-3 py-1.5 text-sm font-medium text-foreground/90 transition-all duration-300 before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-r before:from-blue-500/0 before:to-purple-500/0 before:opacity-0 before:transition-opacity hover:before:opacity-10 dark:text-foreground/80 dark:hover:text-foreground",
+        className,
+      )}
+    >
+      {children}
+    </Link>
   );
 };
 

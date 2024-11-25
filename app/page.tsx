@@ -1,10 +1,11 @@
 import Experience from "@/components/Experience";
-import LoginModal from "@/components/Login";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Experience />
-    </div>
+      <Hero />
+    </>
   );
 }

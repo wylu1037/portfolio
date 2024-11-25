@@ -29,10 +29,10 @@ export default function AboutPage() {
         }
       >
         <div className="py-4">
-          <p>
+          <p className="text-foreground">
             This modal does not have a close button in the top right corner.
           </p>
-          <p>
+          <p className="text-foreground">
             You can only close it using the footer buttons or by clicking
             outside the modal.
           </p>

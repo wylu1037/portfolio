@@ -1,8 +1,16 @@
+import Container from "./shared/Container";
+import DotBackground from "./shared/DotBackground";
+import Wrapper from "./shared/Wrapper";
+
 const Hero = () => {
   return (
-    <div>
-      <h1>Hello, I&apos;m Wenyang Lu</h1>
-    </div>
+    <Wrapper className="bg-transparent">
+      <Container>
+        <div className="mx-auto py-20">
+          <h1 className="text-4xl font-bold">Hello, I&apos;m Wenyang Lu</h1>
+        </div>
+      </Container>
+    </Wrapper>
   );
 };
 

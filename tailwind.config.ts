@@ -73,8 +73,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        silkscreen: ["var(--font-silkscreen)"],
-        goldman: ["var(--font-goldman)"],
+
       },
     },
   },
