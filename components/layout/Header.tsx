@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const Header = () => {
   return (
     <header className="relative z-50">
-      <nav className="fixed left-1/2 top-6 flex -translate-x-1/2 items-center justify-between gap-2 rounded-2xl border border-border/40 bg-white/70 px-4 py-2 shadow-lg backdrop-blur-md dark:border-border/80 dark:bg-gray-950/70 md:gap-4 md:px-6">
+      <nav className="fixed left-1/2 top-6 z-50 flex -translate-x-1/2 items-center justify-between gap-2 rounded-2xl border border-white/[0.1] px-4 py-2 shadow-[0_0_10px_rgba(0,0,0,0.1)] backdrop-blur-3xl dark:border-white/[0.1] dark:bg-slate-100/10 md:gap-4 md:px-6">
         {/* Mobile Menu Button (可以在需要时添加) */}
         <div className="lg:hidden">{/* 移动端菜单按钮 */}</div>
 
@@ -54,7 +54,7 @@ const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "relative rounded-lg px-3 py-1.5 text-sm font-medium text-foreground/90 transition-all duration-300 before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-r before:from-blue-500/0 before:to-purple-500/0 before:opacity-0 before:transition-opacity hover:before:opacity-10 dark:text-foreground/80 dark:hover:text-foreground",
+        "relative rounded-lg px-3 py-1.5 font-inter text-sm font-medium text-foreground/90 transition-all duration-300 before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-r before:from-blue-500/0 before:to-purple-500/0 before:opacity-0 before:transition-opacity hover:before:opacity-10 dark:text-foreground/80 dark:hover:text-foreground",
         className,
       )}
     >
