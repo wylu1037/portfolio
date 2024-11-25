@@ -1,5 +1,4 @@
 import Container from "./shared/Container";
-import DotBackground from "./shared/DotBackground";
 import Wrapper from "./shared/Wrapper";
 
 const Hero = () => {

@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import Container from "./shared/Container";
 import Wrapper from "./shared/Wrapper";
 import DotBackground from "./shared/DotBackground";
