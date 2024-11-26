@@ -49,11 +49,11 @@ const Introduction = () => {
           </p>
         </div>
         <Image
-          src="/avatar.jpg"
+          src="/avatar.png"
           alt="Wenyang Lu"
           width={120}
           height={120}
-          className="items-start justify-self-start rounded-full"
+          className="self-start"
         />
       </div>
 
