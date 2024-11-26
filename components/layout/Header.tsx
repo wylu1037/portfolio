@@ -8,9 +8,14 @@ import { cn } from "@/lib/utils";
 const Header = () => {
   return (
     <header className="relative z-50">
-      <nav className="fixed left-1/2 top-6 z-50 flex -translate-x-1/2 items-center justify-between gap-2 rounded-2xl border border-white/[0.1] bg-white/10 px-4 py-2 shadow-[0_0_10px_rgba(0,0,0,0.1)] backdrop-blur-3xl dark:border-white/[0.1] dark:bg-slate-100/10 md:gap-4 md:px-6">
+      <nav
+        className={cn(
+          "fixed left-1/2 top-6 z-50 flex -translate-x-1/2 items-center justify-between gap-2 rounded-2xl border border-white/[0.1] bg-white/10 px-4 py-2 shadow-[0_0_10px_rgba(0,0,0,0.1)] backdrop-blur-3xl",
+          "dark:border-white/[0.1] dark:bg-slate-100/10 md:gap-4 md:px-6",
+        )}
+      >
         {/* Mobile Menu Button */}
-        <div className="lg:hidden">{/* 移动端菜单按钮 */}</div>
+        <div className="lg:hidden">{}</div>
 
         {/* Navigation Links */}
         <div className="flex items-center gap-1 md:gap-3">
@@ -30,7 +35,10 @@ const Header = () => {
           {/* Contact Button */}
           <NavLink
             href="/contact"
-            className="ml-2 bg-gradient-to-tr from-blue-800 to-blue-500 px-4 py-1.5 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 dark:text-white"
+            className={cn(
+              "ml-2 bg-gradient-to-tr from-blue-800 to-blue-500 px-4 py-1.5 text-sm font-medium text-white",
+              "transition-all duration-300 hover:-translate-y-0.5 dark:text-white",
+            )}
           >
             Contact
           </NavLink>
@@ -40,7 +48,6 @@ const Header = () => {
   );
 };
 
-// 抽取通用的导航链接组件
 const NavLink = ({
   href,
   children,
@@ -54,7 +61,9 @@ const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "relative rounded-lg px-3 py-1.5 font-inter text-sm font-medium text-foreground/90 transition-all duration-300 dark:text-foreground/80 dark:hover:text-foreground",
+        "relative rounded-lg px-3 py-1.5 font-inter text-sm font-medium",
+        "text-foreground/90 transition-all duration-300",
+        "dark:text-foreground/80 dark:hover:text-foreground",
         className,
       )}
     >
