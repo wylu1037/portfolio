@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-background px-4 py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-transparent px-4 py-12 sm:px-6 lg:px-8">
       <motion.div
         className="mx-auto max-w-3xl"
         initial={{ opacity: 0, y: 20 }}

@@ -1,5 +1,5 @@
 import Wrapper from "@/components/shared/Wrapper";
-import Contact from "@/components/Contact";
+import Contact from "@/components/contact/Contact";
 import Container from "@/components/shared/Container";
 
 export default function ContactPage() {
