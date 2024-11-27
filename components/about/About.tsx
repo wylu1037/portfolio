@@ -58,7 +58,6 @@ const Introduction = () => {
       </div>
 
       <h2 className="text-2xl font-bold text-foreground">About Me</h2>
-
       <div className="space-y-4 text-justify text-muted-foreground">
         <p className="leading-relaxed">
           After completing my Master&apos;s degree in Summer 2020, I began my
@@ -71,10 +70,14 @@ const Introduction = () => {
         <p className="leading-relaxed">
           Late 2021 marked a pivotal moment in my career when I relocated to
           Hefei and dove into{" "}
-          <span className="font-semibold text-blue-700">blockchain</span>{" "}
+          <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
+            blockchain
+          </span>{" "}
           development. This transition introduced me to the exciting world of{" "}
-          <span className="font-semibold text-blue-700">Web3</span>, expanding
-          my programming expertise beyond Java to include{" "}
+          <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
+            Web3
+          </span>
+          , expanding my programming expertise beyond Java to include{" "}
           <span className="font-semibold italic text-foreground">Go</span>,{" "}
           <span className="font-semibold italic text-foreground">Rust</span>,
           and{" "}
@@ -87,7 +90,7 @@ const Introduction = () => {
         <p className="leading-relaxed">
           Currently, I&apos;m focusing on developing my full-stack capabilities
           with a particular interest in{" "}
-          <span className="font-semibold text-blue-700">
+          <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
             Artificial Intelligence
           </span>
           . My ultimate goal is to establish myself as a{" "}
