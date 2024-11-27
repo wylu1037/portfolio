@@ -21,20 +21,29 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import Wrapper from "@/components/shared/Wrapper";
 import { BorderBeam } from "../ui/border-beam";
+import useCopyToClipboard from "@/lib/hooks/use-copy-to-clipboard";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const { isCopied: isCopiedEmail, copyToClipboard: copyEmailToClipboard } =
+    useCopyToClipboard({ timeout: 2000 });
+  const { isCopied: isCopiedPhone, copyToClipboard: copyPhoneToClipboard } =
+    useCopyToClipboard({ timeout: 2000 });
+  const onCopyEmail = () => {
+    if (isCopiedEmail) return;
+    copyEmailToClipboard("wylu1037@gmail.com", "Email");
+  };
+  const onCopyPhone = () => {
+    if (isCopiedPhone) return;
+    copyPhoneToClipboard("+86 155 4947 2950", "Phone");
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsSubmitting(false);
-  };
-
-  const copyToClipboard = (text: string, type: string) => {
-    navigator.clipboard.writeText(text);
-    toast.success(`${type} copied to clipboard`);
   };
 
   return (
@@ -74,7 +83,7 @@ export default function Contact() {
               transition={{ delay: 0.4 }}
             >
               <button
-                onClick={() => copyToClipboard("wylu1037@gmail.com", "Email")}
+                onClick={onCopyEmail}
                 className={cn(
                   "group flex items-center justify-between",
                   "rounded-lg bg-secondary/40 p-4 transition-all",
@@ -94,7 +103,7 @@ export default function Contact() {
               </button>
 
               <button
-                onClick={() => copyToClipboard("+86 155 4947 2950", "Phone")}
+                onClick={onCopyPhone}
                 className={cn(
                   "group flex items-center justify-between",
                   "rounded-lg bg-secondary/40 p-4 transition-all",
