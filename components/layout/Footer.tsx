@@ -2,164 +2,106 @@ import Link from "next/link";
 import { memo } from "react";
 import { ThemeToggle } from "../theme/theme-toggle";
 import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconMail,
+  IconCode,
   IconHeart,
-  IconBrandX,
+  IconRocket,
+  IconBrandDiscordFilled,
+  IconBrandLinkedinFilled,
+  IconBrandXFilled,
+  IconBrandGithubFilled,
 } from "@tabler/icons-react";
 
 const Footer = memo(() => {
   return (
-    <footer className="w-full border-t bg-background">
-      <div className="container px-4 py-16 md:px-6">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">About</h3>
-            <p className="text-sm leading-loose text-muted-foreground">
-              A passionate developer focused on creating innovative and
-              user-friendly web applications.
-            </p>
-            <div className="flex space-x-4">
+    <footer>
+      <div className="mx-auto px-4 sm:max-w-6xl sm:px-6">
+        <div className="flex flex-col items-center justify-between gap-8 border-t border-zinc-200 py-8 dark:border-zinc-800 sm:flex-row md:py-12">
+          <div className="flex w-full flex-col">
+            <div className="mb-4">
               <Link
-                href="https://github.com/wylu1037"
-                className="text-muted-foreground hover:text-foreground"
+                href="/"
+                className="flex h-8 w-8 items-center justify-center rounded bg-background shadow-sm shadow-zinc-950/20"
               >
-                <IconBrandGithub className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
+                <span className="text-2xl">🔥</span>
+              </Link>
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">
+                © {new Date().getFullYear()} WenyangLu™. All rights reserved.
+              </p>
+            </div>
+            <div className="mt-4 flex space-x-3 text-sm">
+              <Link
+                href="#"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Status
               </Link>
               <Link
-                href="https://twitter.com/wylu1037"
-                className="text-muted-foreground hover:text-foreground"
+                href="/terms-of-service"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <IconBrandX className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+                Terms of Service
+              </Link>
+              <Link
+                href="/privacy-policy"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Privacy Policy
+              </Link>
+            </div>
+            <div className="mb-1 mt-4 flex space-x-4">
+              <Link
+                href="https://twitter.com/wylu1037"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <IconBrandXFilled className="h-6 w-6" />
+              </Link>
+              <Link
+                href="https://github.com/wylu1037"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <IconBrandGithubFilled className="h-6 w-6" />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/%E6%96%87%E6%89%AC-%E5%8D%A2-2b93ba298/"
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <IconBrandLinkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
+                <IconBrandLinkedinFilled className="h-6 w-6" />
               </Link>
               <Link
                 href="wylu1037@gmail.com"
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <IconMail className="h-5 w-5" />
-                <span className="sr-only">Email</span>
+                <IconBrandDiscordFilled className="h-6 w-6" />
               </Link>
             </div>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Navigation</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Blog
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Projects</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/projects/featured"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Featured Work
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects/latest"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Latest Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects/archive"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Archive
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Legal</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/licensing"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Licensing
-                </Link>
-              </li>
-            </ul>
+          <div className="flex flex-col space-y-6">
+            <div className="mt-2">
+              <p className="max-w-md text-justify text-sm leading-loose text-muted-foreground">
+                A passionate developer focused on creating innovative and
+                user-friendly web applications.
+              </p>
+            </div>
+            <div className="flex justify-between">
+              <div className="flex items-center space-x-3">
+                <IconCode className="h-5 w-5 text-muted-foreground" />
+                <IconHeart className="h-5 w-5 text-red-500" />
+                <IconRocket className="h-5 w-5 text-muted-foreground" />
+              </div>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center justify-between space-y-4 border-t pt-8 md:flex-row md:space-y-0">
-          <div className="flex items-center space-x-4">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} WenyangLu™. All rights reserved.
-            </p>
-            <ThemeToggle />
-          </div>
-          <div className="flex items-center space-x-1">
-            <span className="text-sm text-muted-foreground">Crafted with</span>
-            <IconHeart className="motion-preset-blink h-4 w-4 fill-red-500 text-red-500 motion-ease-spring-smooth" />
-            <span className="text-sm text-muted-foreground">by WenyangLu</span>
-          </div>
-        </div>
+      </div>
+
+      {/* Portfolio Text Effect */}
+      <div
+        className="relative -z-10 mx-auto -mt-8 hidden h-[184px] w-full overflow-clip sm:max-w-[1158px] md:block"
+        aria-hidden="true"
+      >
+        <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[255px] font-bold leading-none before:bg-gradient-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Portfolio'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Portfolio'] after:[text-shadow:0_1px_0_white] dark:before:from-zinc-800 dark:before:to-zinc-900/30 dark:after:bg-zinc-800/70 dark:after:[text-shadow:0_1px_0_black]"></div>
       </div>
     </footer>
   );
