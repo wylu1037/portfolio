@@ -16,48 +16,49 @@ interface SkillCategory {
 
 const skillsData: SkillCategory[] = [
   {
-    title: "Backend",
+    title: "Lang",
     skills: [
       { icon: "logos:go", color: "#00ADD8" },
+      { icon: "logos:typescript-icon", color: "#3178C6" },
       { icon: "devicon:rust", color: "#DEA584" },
       { icon: "logos:python", color: "#3776AB" },
-      { icon: "devicon:nodejs", color: "#339933" },
+      { icon: "logos:bun", color: "#fbf0df" },
     ],
   },
   {
-    title: "Frontend",
+    title: "FE",
     skills: [
       { icon: "simple-icons:react", color: "#61DAFB" },
-      { icon: "simple-icons:typescript", color: "#3178C6" },
       { icon: "simple-icons:nextdotjs", color: "#000000" },
       { icon: "simple-icons:tailwindcss", color: "#06B6D4" },
     ],
   },
   {
-    title: "Database",
+    title: "DB",
     skills: [
       { icon: "logos:mysql", color: "#4479A1" },
       { icon: "simple-icons:mongodb", color: "#47A248" },
+      { icon: "devicon:postgresql", color: "#4169E1" },
+      { icon: "devicon:sqlite", color: "#003B57" },
       { icon: "logos:redis", color: "#DC382D" },
-      { icon: "simple-icons:postgresql", color: "#4169E1" },
     ],
   },
   {
     title: "AI",
     skills: [
-      { icon: "simple-icons:tensorflow", color: "#FF6F00" },
-      { icon: "simple-icons:pytorch", color: "#EE4C2C" },
-      { icon: "simple-icons:openai", color: "#412991" },
-      { icon: "simple-icons:scikitlearn", color: "#F7931E" },
+      { icon: "simple-icons:huggingface", color: "#FFD21E" },
+      { icon: "simple-icons:langchain", color: "#3178C6" },
+      { icon: "simple-icons:vercel", color: "#000000" },
     ],
   },
   {
     title: "Misc",
     skills: [
-      { icon: "simple-icons:docker", color: "#2496ED" },
-      { icon: "simple-icons:kubernetes", color: "#326CE5" },
-      { icon: "simple-icons:amazonaws", color: "#232F3E" },
-      { icon: "simple-icons:github", color: "#181717" },
+      { icon: "logos:docker-icon", color: "#2496ED" },
+      { icon: "devicon:ansible", color: "#EE0000" },
+      { icon: "logos:ethereum", color: "#3C3C3D" },
+      { icon: "logos:graphql", color: "#E10098" },
+      { icon: "logos:grpc", color: "#244B9B" },
     ],
   },
 ];
@@ -67,11 +68,11 @@ const Skill = () => {
 
   const getPatternStyle = (index: number) => {
     const patterns = [
-      "radial-gradient(circle at 20% 20%, rgba(0, 173, 216, 0.05) 0%, transparent 50%)",
-      "linear-gradient(45deg, rgba(97, 218, 251, 0.05) 25%, transparent 25%)",
-      "repeating-linear-gradient(45deg, rgba(71, 162, 72, 0.05) 0%, transparent 10%)",
+      "linear-gradient(135deg, rgba(0, 82, 204, 0.15) 0%, rgba(0, 173, 216, 0.05) 60%, transparent 100%)",
+      "linear-gradient(-45deg, rgba(97, 218, 251, 0.15) 0%, rgba(97, 218, 251, 0.05) 60%, transparent 100%)",
+      "linear-gradient(45deg, rgba(71, 162, 72, 0.15) 0%, transparent 70%)",
       "radial-gradient(circle at 80% 80%, rgba(255, 111, 0, 0.05) 0%, transparent 50%)",
-      "linear-gradient(-45deg, rgba(36, 150, 237, 0.05) 25%, transparent 25%)",
+      "linear-gradient(225deg, rgba(36, 150, 237, 0.15) 0%, rgba(79, 209, 197, 0.08) 50%, transparent 90%)",
     ];
     return patterns[index];
   };
@@ -94,7 +95,7 @@ const Skill = () => {
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{
-                opacity: isOtherCardFocused ? 0.5 : 1,
+                opacity: 1,
                 y: 0,
                 scale: isCardFocused ? 1.05 : 1,
               }}
