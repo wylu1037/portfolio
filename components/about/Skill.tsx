@@ -19,10 +19,10 @@ const skillsData: SkillCategory[] = [
   {
     title: "Backend",
     skills: [
-      { icon: "simple-icons:go", color: "#00ADD8" },
-      { icon: "simple-icons:rust", color: "#DEA584" },
+      { icon: "logos:go", color: "#00ADD8" },
+      { icon: "devicon:rust", color: "#DEA584" },
       { icon: "simple-icons:python", color: "#3776AB" },
-      { icon: "simple-icons:nodejs", color: "#339933" },
+      { icon: "devicon:nodejs", color: "#339933" },
     ],
   },
   {
@@ -37,14 +37,23 @@ const skillsData: SkillCategory[] = [
   {
     title: "Database",
     skills: [
-      { icon: "simple-icons:mysql", color: "#4479A1" },
+      { icon: "logos:mysql", color: "#4479A1" },
       { icon: "simple-icons:mongodb", color: "#47A248" },
-      { icon: "simple-icons:redis", color: "#DC382D" },
+      { icon: "logos:redis", color: "#DC382D" },
       { icon: "simple-icons:postgresql", color: "#4169E1" },
     ],
   },
   {
-    title: "DevOps & Cloud",
+    title: "AI",
+    skills: [
+      { icon: "simple-icons:tensorflow", color: "#FF6F00" },
+      { icon: "simple-icons:pytorch", color: "#EE4C2C" },
+      { icon: "simple-icons:openai", color: "#412991" },
+      { icon: "simple-icons:scikitlearn", color: "#F7931E" },
+    ],
+  },
+  {
+    title: "Else",
     skills: [
       { icon: "simple-icons:docker", color: "#2496ED" },
       { icon: "simple-icons:kubernetes", color: "#326CE5" },
@@ -54,114 +63,54 @@ const skillsData: SkillCategory[] = [
   },
 ];
 
-const SkillCard = ({ skill }: { skill: SkillItem }) => {
-  return (
-    <div className="group relative">
-      <div
-        className="flex h-16 w-16 items-center justify-center rounded-xl bg-background/50 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110"
-        style={{
-          boxShadow: `0 0 20px ${skill.color}20`,
-        }}
-      >
-        <Icon
-          icon={skill.icon}
-          className="h-8 w-8"
-          style={{ color: skill.color }}
-        />
-      </div>
-    </div>
-  );
-};
-
-const CategoryCard = ({
-  category,
-  index,
-  isActive,
-  onClick,
-}: {
-  category: SkillCategory;
-  index: number;
-  isActive: boolean;
-  onClick: () => void;
-}) => {
-  return (
-    <motion.div
-      layout
-      initial={false}
-      animate={{
-        scale: isActive ? 1 : 0.9,
-        y: isActive ? 0 : index * 40,
-        x: isActive ? 0 : index * 20,
-        zIndex: isActive ? 50 : 40 - index,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      }}
-      onClick={onClick}
-      className={cn(
-        "absolute inset-x-0 cursor-pointer rounded-2xl bg-card p-6 shadow-lg transition-shadow hover:shadow-xl",
-        isActive ? "shadow-xl" : "shadow-md",
-      )}
-      style={{
-        width: "calc(100% - 40px)",
-        height: "fit-content",
-        margin: "0 20px",
-      }}
-    >
-      <div className="space-y-6">
-        <h3 className="text-xl font-bold">{category.title}</h3>
-        <div className="grid grid-cols-4 gap-6">
-          {category.skills.map((skill, idx) => (
-            <SkillCard key={idx} skill={skill} />
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 const Skill = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
-    <div className="relative">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-24 text-3xl font-bold"
-      >
-        Technical Skills
-      </motion.h2>
+    <div className="space-y-8">
+      <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
+        Skills
+      </h2>
+      <div className="flex justify-center gap-4 px-4">
+        {skillsData.map((category, index) => {
+          const rotation = (index - 2) * 15;
+          const translateY = Math.abs(index - 2) * 20;
 
-      <div className="relative mx-auto max-w-4xl" style={{ height: "400px" }}>
-        <div className="relative">
-          <div className="invisible" style={{ height: 0, padding: "0 20px" }}>
-            <div className="rounded-2xl bg-card p-6">
-              <div className="space-y-6">
-                <h3 className="text-xl font-bold">Placeholder</h3>
-                <div className="grid grid-cols-4 gap-6">
-                  {Array(4)
-                    .fill(0)
-                    .map((_, idx) => (
-                      <div key={idx} className="h-16 w-16" />
-                    ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {skillsData.map((category, index) => (
-            <CategoryCard
+          return (
+            <motion.div
               key={category.title}
-              category={category}
-              index={index}
-              isActive={index === activeIndex}
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </div>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="w-64 rounded-xl border border-border bg-card p-6"
+              style={{
+                transform: `rotate(${rotation}deg) translateY(${translateY}px)`,
+                transformOrigin: "bottom center",
+                zIndex: index === 2 ? 5 : Math.abs(index - 2),
+              }}
+            >
+              <h3 className="mb-4 text-center text-xl font-bold">
+                {category.title}
+              </h3>
+              <div className="flex flex-col gap-4">
+                {category.skills.map((skill) => (
+                  <motion.div
+                    key={skill.icon}
+                    className="group relative"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="flex flex-col items-center justify-center rounded-lg border border-border/50 bg-background/50 p-3 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
+                      <Icon
+                        icon={skill.icon}
+                        className="h-8 w-8 transition-transform duration-300 group-hover:scale-110"
+                        style={{ color: skill.color }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
