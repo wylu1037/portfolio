@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 interface SkillItem {
   icon: string;
@@ -21,7 +20,7 @@ const skillsData: SkillCategory[] = [
     skills: [
       { icon: "logos:go", color: "#00ADD8" },
       { icon: "devicon:rust", color: "#DEA584" },
-      { icon: "simple-icons:python", color: "#3776AB" },
+      { icon: "logos:python", color: "#3776AB" },
       { icon: "devicon:nodejs", color: "#339933" },
     ],
   },
@@ -64,49 +63,88 @@ const skillsData: SkillCategory[] = [
 ];
 
 const Skill = () => {
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+
+  const getPatternStyle = (index: number) => {
+    const patterns = [
+      "radial-gradient(circle at 20% 20%, rgba(0, 173, 216, 0.05) 0%, transparent 50%)",
+      "linear-gradient(45deg, rgba(97, 218, 251, 0.05) 25%, transparent 25%)",
+      "repeating-linear-gradient(45deg, rgba(71, 162, 72, 0.05) 0%, transparent 10%)",
+      "radial-gradient(circle at 80% 80%, rgba(255, 111, 0, 0.05) 0%, transparent 50%)",
+      "linear-gradient(-45deg, rgba(36, 150, 237, 0.05) 25%, transparent 25%)",
+    ];
+    return patterns[index];
+  };
+
   return (
     <div className="space-y-8">
       <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
         Skills
       </h2>
-      <div className="flex justify-center gap-4 px-4">
+      <div className="flex justify-between gap-4">
         {skillsData.map((category, index) => {
           const rotation = (index - 2) * 15;
           const translateY = Math.abs(index - 2) * 20;
+          const isCardFocused = focusedIndex === index;
+          const isOtherCardFocused =
+            focusedIndex !== null && focusedIndex !== index;
 
           return (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-64 rounded-xl border border-border bg-card p-6"
+              animate={{
+                opacity: isOtherCardFocused ? 0.3 : 1,
+                y: 0,
+                scale: isCardFocused ? 1.05 : 1,
+              }}
+              transition={{
+                duration: 0.1,
+                delay: index * 0.1,
+                ease: [0.4, 0, 0.2, 1],
+                scale: {
+                  duration: 0.1,
+                  ease: [0.34, 1.56, 0.64, 1],
+                },
+              }}
+              className={`w-64 rounded-xl border bg-card/95 p-6 transition-all duration-300 ${
+                isCardFocused
+                  ? "border-border/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_-4px_rgba(255,255,255,0.1)]"
+                  : "border-border/20 hover:shadow-lg"
+              }`}
               style={{
                 transform: `rotate(${rotation}deg) translateY(${translateY}px)`,
                 transformOrigin: "bottom center",
-                zIndex: index === 2 ? 5 : Math.abs(index - 2),
+                zIndex: isCardFocused
+                  ? 10
+                  : index === 2
+                    ? 5
+                    : Math.abs(index - 2),
+                backgroundImage: getPatternStyle(index),
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
+              onMouseEnter={() => setFocusedIndex(index)}
+              onMouseLeave={() => setFocusedIndex(null)}
             >
-              <h3 className="mb-4 text-center text-xl font-bold">
-                {category.title}
-              </h3>
-              <div className="flex flex-col gap-4">
-                {category.skills.map((skill) => (
-                  <motion.div
-                    key={skill.icon}
-                    className="group relative"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="flex flex-col items-center justify-center rounded-lg border border-border/50 bg-background/50 p-3 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
+              <div className="relative overflow-hidden">
+                <h3 className="mb-6 text-center text-xl font-bold">
+                  {category.title}
+                </h3>
+                <div className="flex flex-col gap-6">
+                  {category.skills.map((skill) => (
+                    <div
+                      key={skill.icon}
+                      className="flex items-center justify-center"
+                    >
                       <Icon
                         icon={skill.icon}
-                        className="h-8 w-8 transition-transform duration-300 group-hover:scale-110"
+                        className="h-9 w-9"
                         style={{ color: skill.color }}
                       />
                     </div>
-                  </motion.div>
-                ))}
+                  ))}
+                </div>
               </div>
             </motion.div>
           );
