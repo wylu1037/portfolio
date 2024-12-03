@@ -5,7 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
-import { Inter } from "next/font/google";
+import { Inter, Monoton } from "next/font/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,6 +21,11 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+const monoton = Monoton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-monoton",
+});
 
 export const metadata: Metadata = {
   title: "Wenyang Lu",
@@ -35,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} relative flex min-h-screen flex-col antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${monoton.variable} relative flex min-h-screen flex-col antialiased`}
       >
         <ThemeProvider attribute="class">
           <Toaster expand={false} position="top-right" />

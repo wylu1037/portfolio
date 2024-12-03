@@ -52,7 +52,7 @@ const skillsData: SkillCategory[] = [
     ],
   },
   {
-    title: "Else",
+    title: "Misc",
     skills: [
       { icon: "simple-icons:docker", color: "#2496ED" },
       { icon: "simple-icons:kubernetes", color: "#326CE5" },
@@ -63,7 +63,7 @@ const skillsData: SkillCategory[] = [
 ];
 
 const Skill = () => {
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(2);
 
   const getPatternStyle = (index: number) => {
     const patterns = [
@@ -94,7 +94,7 @@ const Skill = () => {
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{
-                opacity: isOtherCardFocused ? 0.3 : 1,
+                opacity: isOtherCardFocused ? 0.5 : 1,
                 y: 0,
                 scale: isCardFocused ? 1.05 : 1,
               }}
@@ -125,12 +125,26 @@ const Skill = () => {
                 backgroundPosition: "center",
               }}
               onMouseEnter={() => setFocusedIndex(index)}
-              onMouseLeave={() => setFocusedIndex(null)}
             >
               <div className="relative overflow-hidden">
-                <h3 className="mb-6 text-center text-xl font-bold">
-                  {category.title}
-                </h3>
+                <div className="mb-4">
+                  <div className="relative">
+                    <div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-border/5 to-transparent blur-sm"
+                      aria-hidden="true"
+                    />
+                    <h3 className="relative text-center">
+                      <span className="font-monoton bg-gradient-to-b from-foreground/90 to-foreground/70 bg-clip-text text-lg uppercase tracking-wider text-transparent">
+                        {category.title}
+                      </span>
+                    </h3>
+                  </div>
+                </div>
+                <div className="mb-6">
+                  <div className="relative">
+                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-border/80 to-transparent dark:from-transparent dark:via-border/60 dark:to-transparent"></div>
+                  </div>
+                </div>
                 <div className="flex flex-col gap-6">
                   {category.skills.map((skill) => (
                     <div

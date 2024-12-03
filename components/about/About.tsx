@@ -12,7 +12,7 @@ const About = () => {
   return (
     <Wrapper className="mt-28 bg-transparent">
       <Container>
-        <section className="flex flex-col gap-12">
+        <section className="mb-12 flex flex-col gap-12">
           <Introduction />
           <WorkExperience />
           <Education />

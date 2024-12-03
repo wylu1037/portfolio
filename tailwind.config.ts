@@ -88,6 +88,7 @@ const config = {
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
+        monoton: ["var(--font-monoton)"],
       },
     },
   },
