@@ -1,8 +1,8 @@
 "use client";
 
-import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Icon } from "@iconify/react";
 
 interface EducationEntry {
   institution: string;
@@ -77,7 +77,7 @@ const Education = () => {
           >
             <div className="relative">
               {/* 装饰性图案 */}
-              <div className="absolute right-0 top-0 -z-10 h-32 w-32 opacity-5">
+              <div className="absolute right-2 top-2 -z-10 h-32 w-32 opacity-5">
                 {entry.decoration}
               </div>
 
@@ -101,11 +101,12 @@ const Education = () => {
                     {entry.degree} in {entry.major}
                   </p>
                   <div className="flex items-center gap-4">
-                    <p className="text-xs text-muted-foreground/80">
+                    <p className="flex items-center gap-1 text-xs text-muted-foreground/80">
+                      <Icon icon="uil:calender" className="h-3 w-3" />
                       {entry.period}
                     </p>
                     <span className="flex items-center gap-1 text-xs text-muted-foreground/60">
-                      <MapPin className="h-3 w-3" />
+                      <Icon icon="bx:map" className="h-3 w-3" />
                       {entry.location}
                     </span>
                   </div>

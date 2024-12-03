@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 export function ThemeToggle() {
@@ -30,11 +30,11 @@ export function ThemeToggle() {
       >
         {theme === "dark" ? (
           <div className="flex h-5 w-5 -translate-x-[1px] items-center justify-center rounded-full bg-black text-white">
-            <Moon className="h-3 w-3" />
+            <Icon icon="tabler:moon" className="h-3 w-3" />
           </div>
         ) : (
           <div className="flex h-5 w-5 translate-x-[1px] items-center justify-center rounded-full bg-white text-gray-600">
-            <Sun className="h-3 w-3" />
+            <Icon icon="lucide:sun" className="h-3 w-3" />
           </div>
         )}
       </motion.div>

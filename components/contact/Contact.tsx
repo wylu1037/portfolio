@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, Send, Copy } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
@@ -22,6 +20,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Wrapper from "@/components/shared/Wrapper";
 import { BorderBeam } from "../ui/border-beam";
 import useCopyToClipboard from "@/lib/hooks/use-copy-to-clipboard";
+import { Icon } from "@iconify/react";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -93,13 +92,19 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-3">
                   <div className="rounded-md bg-background p-2 ring-1 ring-border/40">
-                    <Mail className="h-5 w-5 text-foreground/80" />
+                    <Icon
+                      icon="lucide:mail"
+                      className="h-5 w-5 text-foreground/80"
+                    />
                   </div>
                   <span className="font-medium text-foreground">
                     wylu1037@gmail.com
                   </span>
                 </div>
-                <Copy className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                <Icon
+                  icon="lucide:copy"
+                  className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                />
               </button>
 
               <button
@@ -113,13 +118,19 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-3">
                   <div className="rounded-md bg-background p-2 ring-1 ring-border/40">
-                    <Phone className="h-5 w-5 text-foreground/80" />
+                    <Icon
+                      icon="lucide:phone"
+                      className="h-5 w-5 text-foreground/80"
+                    />
                   </div>
                   <span className="font-medium text-foreground">
                     +86 155 4947 2950
                   </span>
                 </div>
-                <Copy className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                <Icon
+                  icon="lucide:copy"
+                  className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                />
               </button>
             </motion.div>
 
@@ -229,7 +240,7 @@ export default function Contact() {
                   ) : (
                     <span className="flex items-center justify-center">
                       Send Message
-                      <Send className="ml-2 h-4 w-4" />
+                      <Icon icon="lucide:send" className="ml-2 h-4 w-4" />
                     </span>
                   )}
                 </Button>

@@ -1,15 +1,7 @@
 import Link from "next/link";
 import { memo } from "react";
 import { ThemeToggle } from "../theme/theme-toggle";
-import {
-  IconCode,
-  IconHeart,
-  IconRocket,
-  IconBrandDiscordFilled,
-  IconBrandLinkedinFilled,
-  IconBrandXFilled,
-  IconBrandGithubFilled,
-} from "@tabler/icons-react";
+import { Icon } from "@iconify/react";
 
 const Footer = memo(() => {
   return (
@@ -59,25 +51,25 @@ const Footer = memo(() => {
                 href="https://twitter.com/wylu1037"
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <IconBrandXFilled className="h-6 w-6" />
+                <Icon icon="tabler:brand-x-filled" className="h-6 w-6" />
               </Link>
               <Link
                 href="https://github.com/wylu1037"
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <IconBrandGithubFilled className="h-6 w-6" />
+                <Icon icon="tabler:brand-github-filled" className="h-6 w-6" />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/%E6%96%87%E6%89%AC-%E5%8D%A2-2b93ba298/"
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <IconBrandLinkedinFilled className="h-6 w-6" />
+                <Icon icon="tabler:brand-linkedin-filled" className="h-6 w-6" />
               </Link>
               <Link
                 href="wylu1037@gmail.com"
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
-                <IconBrandDiscordFilled className="h-6 w-6" />
+                <Icon icon="tabler:brand-discord-filled" className="h-6 w-6" />
               </Link>
             </div>
           </div>
@@ -90,9 +82,15 @@ const Footer = memo(() => {
             </div>
             <div className="flex justify-between">
               <div className="flex items-center space-x-3">
-                <IconCode className="h-5 w-5 text-muted-foreground" />
-                <IconHeart className="h-5 w-5 text-red-500" />
-                <IconRocket className="h-5 w-5 text-muted-foreground" />
+                <Icon
+                  icon="tabler:code"
+                  className="h-5 w-5 text-muted-foreground"
+                />
+                <Icon icon="lucide:heart" className="h-5 w-5 text-red-500" />
+                <Icon
+                  icon="tabler:rocket"
+                  className="h-5 w-5 text-muted-foreground"
+                />
               </div>
               <ThemeToggle />
             </div>

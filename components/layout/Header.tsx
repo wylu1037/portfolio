@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { IconGripVertical } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { Icon } from "@iconify/react";
 
 const Header = () => {
   return (
@@ -21,7 +21,10 @@ const Header = () => {
         <div className="flex items-center gap-1 md:gap-3">
           {/* Home */}
           <div className="flex items-center gap-2">
-            <IconGripVertical className="hidden h-4 w-4 cursor-grab text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 md:block" />
+            <Icon
+              icon="tabler:grip-vertical"
+              className="hidden h-4 w-4 cursor-grab text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 md:block"
+            />
             <NavLink href="/">Home</NavLink>
           </div>
 
