@@ -62,7 +62,7 @@ const WorkExperience = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="">
+              <div className="flex flex-col justify-between">
                 <Link
                   href={experience.website}
                   target="_blank"

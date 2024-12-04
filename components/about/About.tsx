@@ -27,7 +27,8 @@ const About = () => {
         y={-1}
         className={cn(
           "-z-10",
-          "[mask-image:linear-gradient(to_bottom,white,transparent,transparent)]",
+          "md:[mask-image:linear-gradient(to_bottom,white,transparent,transparent)]",
+          "[mask-image:linear-gradient(to_bottom,white_0%,transparent_33%,transparent_100%)]",
         )}
       />
     </Wrapper>
