@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 
 interface SkillItem {
   icon: string;
+  color?: string;
 }
 
 interface SkillCategory {
@@ -14,27 +15,28 @@ interface SkillCategory {
 
 const skillsData: SkillCategory[] = [
   {
-    title: "Lang",
+    title: "BE",
     skills: [
       { icon: "logos:go" },
       { icon: "logos:typescript-icon" },
       { icon: "simple-icons:rust" },
       { icon: "logos:python" },
       { icon: "logos:bun" },
+      { icon: "file-icons:prisma" },
     ],
   },
   {
     title: "FE",
     skills: [
       { icon: "logos:react" },
-      { icon: "logos:nextjs-icon" },
+      { icon: "file-icons:nextjs" },
       { icon: "devicon:tailwindcss" },
     ],
   },
   {
     title: "DB",
     skills: [
-      { icon: "logos:mysql" },
+      { icon: "logos:mysql-icon" },
       { icon: "devicon:mongodb" },
       { icon: "devicon:postgresql" },
       { icon: "devicon:sqlite" },
@@ -44,7 +46,7 @@ const skillsData: SkillCategory[] = [
   {
     title: "AI",
     skills: [
-      { icon: "simple-icons:huggingface" },
+      { icon: "simple-icons:huggingface", color: "#FFD21E" },
       { icon: "simple-icons:langchain" },
       { icon: "simple-icons:vercel" },
     ],
@@ -53,7 +55,7 @@ const skillsData: SkillCategory[] = [
     title: "Misc",
     skills: [
       { icon: "logos:docker-icon" },
-      { icon: "devicon:ansible" },
+      { icon: "file-icons:ansible" },
       { icon: "logos:ethereum" },
       { icon: "logos:graphql" },
       { icon: "logos:grpc" },
@@ -64,14 +66,9 @@ const skillsData: SkillCategory[] = [
 const Skill = () => {
   return (
     <div className="space-y-8">
-      <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
-        Skills
-      </h2>
+      <h2 className="flex text-2xl font-bold text-foreground">Skills</h2>
       <div className="flex justify-between gap-4 divide-x divide-border">
         {skillsData.map((category, index) => {
-          const rotation = (index - 2) * 15;
-          const translateY = Math.abs(index - 2) * 20;
-
           return (
             <motion.div
               key={category.title}
@@ -81,46 +78,46 @@ const Skill = () => {
                 y: 0,
               }}
               transition={{
-                duration: 0.1,
-                delay: index * 0.1,
+                duration: 0.3,
+                delay: index * 0.2,
                 ease: [0.4, 0, 0.2, 1],
               }}
               className={`relative w-64 border-border bg-background px-4 py-6`}
-              style={{
-                transform: `rotate(${rotation}deg) translateY(${translateY}px)`,
-                transformOrigin: "bottom center",
-                zIndex: index === 2 ? 5 : Math.abs(index - 2),
-              }}
             >
-              <div className="relative overflow-hidden">
-                <div className="mb-4">
-                  <div className="relative">
-                    <div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-border/5 to-transparent blur-sm"
-                      aria-hidden="true"
+              {/* 标题 */}
+              <div className="mb-4">
+                <div className="relative">
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-border/5 to-transparent blur-sm"
+                    aria-hidden="true"
+                  />
+                  <h3 className="relative text-center">
+                    <span className="font-monoton bg-gradient-to-b from-foreground/90 to-foreground/70 bg-clip-text text-lg uppercase tracking-wider text-transparent">
+                      {category.title}
+                    </span>
+                  </h3>
+                </div>
+              </div>
+              {/* 分割线 */}
+              <div className="mb-6">
+                <div className="relative">
+                  <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-border/80 to-transparent dark:from-transparent dark:via-border/60 dark:to-transparent"></div>
+                </div>
+              </div>
+              {/* 技能图标 */}
+              <div className="flex flex-col gap-6">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.icon}
+                    className="flex items-center justify-center"
+                  >
+                    <Icon
+                      icon={skill.icon}
+                      className="h-9 w-9 transition-all duration-300 hover:scale-110 dark:opacity-80"
+                      style={skill.color ? { color: skill.color } : undefined}
                     />
-                    <h3 className="relative text-center">
-                      <span className="bg-gradient-to-b from-foreground/90 to-foreground/70 bg-clip-text font-monoton text-lg uppercase tracking-wider text-transparent">
-                        {category.title}
-                      </span>
-                    </h3>
                   </div>
-                </div>
-                <div className="mb-6">
-                  <div className="relative">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-border/80 to-transparent dark:from-transparent dark:via-border/60 dark:to-transparent"></div>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-6">
-                  {category.skills.map((skill) => (
-                    <div
-                      key={skill.icon}
-                      className="flex items-center justify-center"
-                    >
-                      <Icon icon={skill.icon} className="h-9 w-9" />
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
             </motion.div>
           );

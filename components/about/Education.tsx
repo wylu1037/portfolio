@@ -32,8 +32,8 @@ const educationData: EducationEntry[] = [
     bgClass: "bg-gradient-to-br from-blue-50/20 to-blue-100/20",
     decoration: (
       <>
-        <div className="absolute h-full w-full rotate-45 bg-gradient-to-r from-primary to-transparent" />
-        <div className="absolute h-full w-full -rotate-45 bg-gradient-to-l from-primary to-transparent" />
+        <div className="absolute h-full w-full rotate-90 bg-gradient-to-r from-primary to-transparent" />
+        <div className="absolute h-full w-full -rotate-90 bg-gradient-to-l from-primary to-transparent" />
       </>
     ),
   },
@@ -62,9 +62,7 @@ const educationData: EducationEntry[] = [
 const Education = () => {
   return (
     <div className="space-y-8">
-      <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
-        Education
-      </h2>
+      <h2 className="flex text-2xl font-bold text-foreground">Education</h2>
 
       <div className="space-y-6">
         {educationData.map((entry, index) => (
