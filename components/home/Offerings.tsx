@@ -1,5 +1,5 @@
 import Container from "../shared/Container";
-import Skeleton from "../shared/skeleton";
+import Skeleton from "../shared/Skeleton";
 import Wrapper from "../shared/Wrapper";
 
 const Offerings = () => {
