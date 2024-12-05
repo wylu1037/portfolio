@@ -1,6 +1,7 @@
 import Container from "../shared/Container";
 import Wrapper from "../shared/Wrapper";
 import Hero from "./Hero";
+import Offerings from "./Offerings";
 import DotPattern from "../ui/dot-pattern";
 import { cn } from "@/lib/utils";
 
@@ -11,6 +12,7 @@ const Home = () => {
       <Container>
         <section className="mb-12 flex flex-col gap-12">
           <Hero />
+          <Offerings />
         </section>
       </Container>
       {/* Background Pattern */}

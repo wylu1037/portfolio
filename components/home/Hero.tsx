@@ -9,7 +9,7 @@ const Hero = () => {
         <span className="block sm:mt-4">Turning Ideas into Code</span>
       </h1>
 
-      <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+      <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
         Passionate about building beautiful web applications with modern
         technologies. Specialized in React, TypeScript, and Node.js development.
       </p>
