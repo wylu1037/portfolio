@@ -8,7 +8,7 @@ import { ChevronRight } from "lucide-react";
 interface WorkExperience {
   company: string;
   logo: string;
-  position: string;
+  title: string;
   period: {
     start: string;
     end: string;
@@ -20,7 +20,7 @@ const experiences: WorkExperience[] = [
   {
     company: "Zkjg",
     logo: "/images/zkjg.png",
-    position: "Blockchain Engineer",
+    title: "Full Stack Engineer",
     period: {
       start: "Nov 2021",
       end: "Present",
@@ -30,7 +30,7 @@ const experiences: WorkExperience[] = [
   {
     company: "Egova",
     logo: "/images/egova.jpeg",
-    position: "Software Engineer",
+    title: "Software Engineer",
     period: {
       start: "Jul 2020",
       end: "Nov 2021",
@@ -73,9 +73,7 @@ const WorkExperience = () => {
                   </h3>
                   <ChevronRight className="h-4 w-4 opacity-0 transition-all group-hover/link:translate-x-1 group-hover/link:opacity-100" />
                 </Link>
-                <p className="text-xs text-foreground/80">
-                  {experience.position}
-                </p>
+                <p className="text-xs text-foreground/80">{experience.title}</p>
               </div>
             </div>
 

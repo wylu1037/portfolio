@@ -80,12 +80,11 @@ const Introduction = () => {
           </span>
           , expanding my programming expertise beyond Java to include{" "}
           <span className="font-semibold italic text-foreground">Go</span>,{" "}
-          <span className="font-semibold italic text-foreground">Rust</span>,
-          and{" "}
           <span className="font-semibold italic text-foreground">
             TypeScript
           </span>
-          .
+          , and{" "}
+          <span className="font-semibold italic text-foreground">Rust</span>.
         </p>
 
         <p className="leading-relaxed">

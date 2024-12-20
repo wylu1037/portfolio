@@ -92,7 +92,7 @@ const Skill = () => {
                     aria-hidden="true"
                   />
                   <h3 className="relative text-center">
-                    <span className="font-monoton bg-gradient-to-b from-foreground/90 to-foreground/70 bg-clip-text text-lg uppercase tracking-wider text-transparent">
+                    <span className="bg-gradient-to-b from-foreground/90 to-foreground/70 bg-clip-text font-monoton text-lg uppercase tracking-wider text-transparent">
                       {category.title}
                     </span>
                   </h3>
@@ -101,7 +101,7 @@ const Skill = () => {
               {/* 分割线 */}
               <div className="mb-6">
                 <div className="relative">
-                  <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-border/80 to-transparent dark:from-transparent dark:via-border/60 dark:to-transparent"></div>
+                  <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-border/80 to-transparent dark:from-transparent dark:via-border/60 dark:to-transparent" />
                 </div>
               </div>
               {/* 技能图标 */}
