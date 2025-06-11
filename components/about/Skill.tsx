@@ -19,10 +19,11 @@ const skillsData: SkillCategory[] = [
     skills: [
       { icon: "logos:go" },
       { icon: "logos:typescript-icon" },
-      { icon: "simple-icons:rust" },
       { icon: "logos:python" },
-      { icon: "logos:bun" },
+      { icon: "simple-icons:rust" },
+      { icon: "logos:nestjs" },
       { icon: "file-icons:prisma" },
+      { icon: "hugeicons:stripe" },
     ],
   },
   {
@@ -31,6 +32,7 @@ const skillsData: SkillCategory[] = [
       { icon: "logos:react" },
       { icon: "file-icons:nextjs" },
       { icon: "devicon:tailwindcss" },
+      { icon: "devicon:trpc" },
     ],
   },
   {
@@ -41,6 +43,7 @@ const skillsData: SkillCategory[] = [
       { icon: "devicon:postgresql" },
       { icon: "devicon:sqlite" },
       { icon: "logos:redis" },
+      { icon: "devicon:supabase" },
     ],
   },
   {
@@ -49,6 +52,7 @@ const skillsData: SkillCategory[] = [
       { icon: "simple-icons:huggingface", color: "#FFD21E" },
       { icon: "simple-icons:langchain" },
       { icon: "simple-icons:vercel" },
+      { icon: "codicon:mcp" },
     ],
   },
   {
