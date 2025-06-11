@@ -27,8 +27,8 @@ const About = () => {
         y={-1}
         className={cn(
           "-z-10",
-          "md:[mask-image:linear-gradient(to_bottom,white,transparent,transparent)]",
-          "[mask-image:linear-gradient(to_bottom,white_0%,transparent_33%,transparent_100%)]",
+          "md:mask-[linear-gradient(to_bottom,white,transparent,transparent)]",
+          "mask-[linear-gradient(to_bottom,white_0%,transparent_33%,transparent_100%)]",
         )}
       />
     </Wrapper>
@@ -71,11 +71,11 @@ const Introduction = () => {
         <p className="leading-relaxed">
           Late 2021 marked a pivotal moment in my career when I relocated to
           Hefei and dove into{" "}
-          <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
+          <span className="bg-linear-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
             blockchain
           </span>{" "}
           development. This transition introduced me to the exciting world of{" "}
-          <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
+          <span className="bg-linear-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
             Web3
           </span>
           , expanding my programming expertise beyond Java to include{" "}
@@ -90,7 +90,7 @@ const Introduction = () => {
         <p className="leading-relaxed">
           Currently, I&apos;m focusing on developing my full-stack capabilities
           with a particular interest in{" "}
-          <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
+          <span className="bg-linear-to-r from-blue-700 to-blue-500 bg-clip-text font-semibold text-transparent">
             Artificial Intelligence
           </span>
           . My ultimate goal is to establish myself as a{" "}

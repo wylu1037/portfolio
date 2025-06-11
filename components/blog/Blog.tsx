@@ -60,7 +60,7 @@ export default function Blog() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="rounded-lg border border-yellow-500/20 bg-yellow-500/10 p-4 text-center backdrop-blur-sm"
+            className="rounded-lg border border-yellow-500/20 bg-yellow-500/10 p-4 text-center backdrop-blur-xs"
           >
             <p className="text-yellow-500">
               🚧 Blog is under construction, more content coming soon!
@@ -76,7 +76,7 @@ export default function Blog() {
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 backdrop-blur-sm transition-all hover:bg-card"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 backdrop-blur-xs transition-all hover:bg-card"
               >
                 {/* 状态标识 */}
                 {post.status === "draft" && (
@@ -86,7 +86,7 @@ export default function Blog() {
                 )}
 
                 {/* 封面图片 */}
-                <div className="relative aspect-[2/1] overflow-hidden">
+                <div className="relative aspect-2/1 overflow-hidden">
                   <Image
                     src={post.coverImage}
                     alt={post.title}
@@ -95,7 +95,7 @@ export default function Blog() {
                     className="object-cover transition-all duration-500 will-change-transform group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background via-background/20 to-transparent opacity-80" />
                 </div>
 
                 {/* 内容区域 */}

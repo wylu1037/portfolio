@@ -29,11 +29,11 @@ const educationData: EducationEntry[] = [
       "Published 2 papers in water resources journals",
       "Outstanding Graduate Student Scholarship",
     ],
-    bgClass: "bg-gradient-to-br from-blue-50/20 to-blue-100/20",
+    bgClass: "bg-linear-to-br from-blue-50/20 to-blue-100/20",
     decoration: (
       <>
-        <div className="absolute h-full w-full rotate-90 bg-gradient-to-r from-primary to-transparent" />
-        <div className="absolute h-full w-full -rotate-90 bg-gradient-to-l from-primary to-transparent" />
+        <div className="absolute h-full w-full rotate-90 bg-linear-to-r from-primary to-transparent" />
+        <div className="absolute h-full w-full -rotate-90 bg-linear-to-l from-primary to-transparent" />
       </>
     ),
   },
@@ -49,11 +49,11 @@ const educationData: EducationEntry[] = [
       "Participated in multiple field studies and water conservation projects",
       "Excellence Scholarship for three consecutive years",
     ],
-    bgClass: "bg-gradient-to-br from-green-50/20 to-green-100/20",
+    bgClass: "bg-linear-to-br from-green-50/20 to-green-100/20",
     decoration: (
       <>
-        <div className="absolute h-full w-full rotate-45 bg-gradient-to-r from-primary to-transparent" />
-        <div className="absolute h-full w-full -rotate-45 bg-gradient-to-l from-primary to-transparent" />
+        <div className="absolute h-full w-full rotate-45 bg-linear-to-r from-primary to-transparent" />
+        <div className="absolute h-full w-full -rotate-45 bg-linear-to-l from-primary to-transparent" />
       </>
     ),
   },
@@ -71,7 +71,7 @@ const Education = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2 }}
-            className={`group relative rounded-xl border border-border/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-border hover:shadow-lg ${entry.bgClass}`}
+            className={`group relative rounded-xl border border-border/50 p-6 backdrop-blur-xs transition-all duration-300 hover:border-border hover:shadow-lg ${entry.bgClass}`}
           >
             <div className="relative">
               {/* 装饰性图案 */}

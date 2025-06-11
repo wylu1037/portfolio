@@ -13,7 +13,7 @@ const Footer = memo(() => {
             <div className="mb-4">
               <Link
                 href="/"
-                className="flex h-8 w-8 items-center justify-center rounded bg-background shadow-sm shadow-zinc-950/20"
+                className="flex h-8 w-8 items-center justify-center rounded bg-background shadow-xs shadow-zinc-950/20"
               >
                 <span className="text-2xl">🔥</span>
               </Link>
@@ -103,7 +103,7 @@ const Footer = memo(() => {
         className="relative -z-10 mx-auto -mt-8 hidden h-[100px] w-full overflow-clip sm:h-[140px] sm:max-w-6xl md:block lg:h-[184px]"
         aria-hidden="true"
       >
-        <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[120px] font-bold leading-none before:bg-gradient-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Portfolio'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Portfolio'] after:[text-shadow:0_1px_0_white] dark:before:from-zinc-800 dark:before:to-zinc-900/30 dark:after:bg-zinc-800/70 dark:after:[text-shadow:0_1px_0_black] sm:text-[180px] lg:text-[255px]"></div>
+        <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[120px] font-bold leading-none before:bg-linear-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Portfolio'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Portfolio'] after:[text-shadow:0_1px_0_white] dark:before:from-zinc-800 dark:before:to-zinc-900/30 dark:after:bg-zinc-800/70 dark:after:[text-shadow:0_1px_0_black] sm:text-[180px] lg:text-[255px]"></div>
       </div>
     </footer>
   );
