@@ -39,7 +39,7 @@ const Header = () => {
           <NavLink
             href="/contact"
             className={cn(
-              "ml-2 bg-gradient-to-tr from-blue-800 to-blue-500 px-4 py-1.5 text-sm font-medium text-white",
+              "ml-2 bg-linear-to-tr from-blue-800 to-blue-500 px-4 py-1.5 text-sm font-medium text-white",
               "transition-all duration-300 hover:-translate-y-0.5 dark:text-white",
             )}
           >

@@ -87,7 +87,7 @@ export default function Contact() {
                   "group flex items-center justify-between",
                   "rounded-lg bg-secondary/40 p-4 transition-all",
                   "hover:bg-secondary/60 dark:bg-secondary/20 dark:hover:bg-secondary/30",
-                  "backdrop-blur-sm",
+                  "backdrop-blur-xs",
                 )}
               >
                 <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export default function Contact() {
                   "group flex items-center justify-between",
                   "rounded-lg bg-secondary/40 p-4 transition-all",
                   "hover:bg-secondary/60 dark:bg-secondary/20 dark:hover:bg-secondary/30",
-                  "backdrop-blur-sm",
+                  "backdrop-blur-xs",
                 )}
               >
                 <div className="flex items-center gap-3">
@@ -139,7 +139,7 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 className={cn(
                   "space-y-6 rounded-xl border border-border/50 bg-background/50 p-6",
-                  "shadow-sm backdrop-blur-sm",
+                  "shadow-xs backdrop-blur-xs",
                 )}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

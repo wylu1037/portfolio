@@ -24,8 +24,8 @@ const Home = () => {
         cr={1 / 2}
         className={cn(
           "-z-10 h-2/3",
-          "md:[mask-image:linear-gradient(to_bottom,white,transparent,transparent)]",
-          "[mask-image:linear-gradient(to_bottom,white_0%,transparent_33%,transparent_100%)]",
+          "md:mask-[linear-gradient(to_bottom,white,transparent,transparent)]",
+          "mask-[linear-gradient(to_bottom,white_0%,transparent_33%,transparent_100%)]",
         )}
       />
     </Wrapper>

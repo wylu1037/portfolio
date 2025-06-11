@@ -29,11 +29,11 @@ export function ThemeToggle() {
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
         {theme === "dark" ? (
-          <div className="flex h-5 w-5 -translate-x-[1px] items-center justify-center rounded-full bg-black text-white">
+          <div className="flex h-5 w-5 -translate-x-px items-center justify-center rounded-full bg-black text-white">
             <Icon icon="tabler:moon" className="h-3 w-3" />
           </div>
         ) : (
-          <div className="flex h-5 w-5 translate-x-[1px] items-center justify-center rounded-full bg-white text-gray-600">
+          <div className="flex h-5 w-5 translate-x-px items-center justify-center rounded-full bg-white text-gray-600">
             <Icon icon="lucide:sun" className="h-3 w-3" />
           </div>
         )}
