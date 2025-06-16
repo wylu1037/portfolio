@@ -1,12 +1,12 @@
 import Container from "@/components/shared/Container";
 import Wrapper from "@/components/shared/Wrapper";
 import { cn } from "@/lib/utils";
-import GridPattern from "../ui/grid-pattern";
+import GridPattern from "../magicui/grid-pattern";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import Skill from "./Skill";
 import Image from "next/image";
-import TypingAnimation from "@/components/ui/typing-animation";
+import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 const About = () => {
   return (
@@ -40,11 +40,10 @@ const Introduction = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-4">
         <div className="flex flex-col gap-4">
-          <TypingAnimation
-            className="text-start text-5xl font-bold text-black dark:text-white"
-            text="Hi, I'm Wenyang Lu! 👋"
-          />
-          <p className="max-w-2xl text-lg text-foreground">
+          <TypingAnimation className="text-start text-5xl font-bold text-black dark:text-white">
+            Hi, I&apos;m Wenyang Lu! 👋
+          </TypingAnimation>
+          <p className="text-foreground max-w-2xl text-lg">
             I&apos;m a full-stack engineer with a passion for building products
             that are both functional and aesthetically pleasing.
           </p>
@@ -58,8 +57,8 @@ const Introduction = () => {
         />
       </div>
 
-      <h2 className="text-2xl font-bold text-foreground">About Me</h2>
-      <div className="space-y-4 text-justify text-muted-foreground">
+      <h2 className="text-foreground text-2xl font-bold">About Me</h2>
+      <div className="text-muted-foreground space-y-4 text-justify">
         <p className="leading-relaxed">
           After completing my Master&apos;s degree in Summer 2020, I began my
           professional journey at a traditional internet company in Wuhan.
@@ -79,12 +78,12 @@ const Introduction = () => {
             Web3
           </span>
           , expanding my programming expertise beyond Java to include{" "}
-          <span className="font-semibold italic text-foreground">Go</span>,{" "}
-          <span className="font-semibold italic text-foreground">
+          <span className="text-foreground font-semibold italic">Go</span>,{" "}
+          <span className="text-foreground font-semibold italic">
             TypeScript
           </span>
           , and{" "}
-          <span className="font-semibold italic text-foreground">Rust</span>.
+          <span className="text-foreground font-semibold italic">Rust</span>.
         </p>
 
         <p className="leading-relaxed">
@@ -94,7 +93,7 @@ const Introduction = () => {
             Artificial Intelligence
           </span>
           . My ultimate goal is to establish myself as a{" "}
-          <span className="font-medium italic text-foreground underline decoration-muted-foreground decoration-wavy underline-offset-2">
+          <span className="text-foreground decoration-muted-foreground font-medium italic underline decoration-wavy underline-offset-2">
             TypeScript Full-Stack Engineer
           </span>{" "}
           specializing in AI technologies.

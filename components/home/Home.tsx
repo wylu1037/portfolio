@@ -2,7 +2,7 @@ import Container from "../shared/Container";
 import Wrapper from "../shared/Wrapper";
 import Hero from "./Hero";
 import Offerings from "./Offerings";
-import DotPattern from "../ui/dot-pattern";
+import DotPattern from "../magicui/dot-pattern";
 import { cn } from "@/lib/utils";
 
 const Home = () => {

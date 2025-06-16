@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import Wrapper from "@/components/shared/Wrapper";
-import { BorderBeam } from "../ui/border-beam";
+import { BorderBeam } from "@/components/magicui/border-beam";
 import useCopyToClipboard from "@/lib/hooks/use-copy-to-clipboard";
 import { Icon } from "@iconify/react";
 
