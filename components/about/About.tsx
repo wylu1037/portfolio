@@ -49,7 +49,7 @@ const Introduction = () => {
           </p>
         </div>
         <Image
-          src="/avatar.png"
+          src="/myself-transparent.png"
           alt="Wenyang Lu"
           width={120}
           height={120}
