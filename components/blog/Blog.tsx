@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { MOCK_POSTS } from "@/data/blog";
 import { useState } from "react";
 import { BlurFade } from "../magicui/blur-fade";
+import { cn } from "@/lib/utils";
 
 export default function Blog() {
   return (
@@ -43,14 +44,27 @@ export default function Blog() {
 
 function BlogCard({ post }: { post: (typeof MOCK_POSTS)[0] }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    setTimeout(() => {
+      setShowContent(true);
+    }, 200);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setShowContent(false); // 立即隐藏内容
+  };
 
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className="group border-border bg-card/50 hover:bg-card relative h-[400px] overflow-hidden rounded-lg border backdrop-blur-xs transition-all"
     >
       {/* 封面图片容器 - 默认占满整个卡片，hover时缩小到40% */}
@@ -71,7 +85,7 @@ function BlogCard({ post }: { post: (typeof MOCK_POSTS)[0] }) {
             sizes="(max-width: 768px) 100vw, 50vw"
           />
           {/* 渐变遮罩 */}
-          <div className="from-background/80 via-background/20 absolute inset-0 bg-gradient-to-t to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t to-transparent" />
         </div>
       </motion.div>
 
@@ -80,7 +94,7 @@ function BlogCard({ post }: { post: (typeof MOCK_POSTS)[0] }) {
         {/* 标签 */}
         <div
           className={`flex flex-wrap gap-2 transition-opacity duration-300 ${
-            isHovered ? "opacity-100" : "opacity-0"
+            showContent ? "opacity-100" : "opacity-0"
           }`}
         >
           {post.tags.map((tag) => (
@@ -92,12 +106,17 @@ function BlogCard({ post }: { post: (typeof MOCK_POSTS)[0] }) {
 
         {/* 标题和描述 */}
         <div className="space-y-2">
-          <h2 className="text-foreground group-hover:text-primary text-xl font-bold tracking-tight transition-colors">
+          <h2
+            className={cn(
+              `text-foreground group-hover:text-primary text-xl font-bold tracking-tight transition-colors`,
+              showContent ? "opacity-100" : "opacity-0",
+            )}
+          >
             {post.title}
           </h2>
           <p
             className={`text-muted-foreground line-clamp-2 text-sm transition-opacity duration-300 ${
-              isHovered ? "opacity-100" : "opacity-0"
+              showContent ? "opacity-100" : "opacity-0"
             }`}
           >
             {post.description}
@@ -107,7 +126,7 @@ function BlogCard({ post }: { post: (typeof MOCK_POSTS)[0] }) {
         {/* 元信息 */}
         <div
           className={`text-muted-foreground flex items-center justify-between text-xs transition-opacity duration-300 ${
-            isHovered ? "opacity-100" : "opacity-0"
+            showContent ? "opacity-100" : "opacity-0"
           }`}
         >
           <div className="flex items-center gap-1.5">
