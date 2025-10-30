@@ -28,8 +28,8 @@ const monoton = Monoton({
 });
 
 export const metadata: Metadata = {
-  title: "Wenyang Lu",
-  description: "A passionate developer",
+  title: "Portfolio",
+  description: "Portfolio of Wenyang Lu",
 };
 
 export default function RootLayout({
