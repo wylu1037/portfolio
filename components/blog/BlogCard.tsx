@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Clock, Calendar } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { BlogPost } from "@/data/blog";
 
@@ -15,10 +15,12 @@ interface BlogCardProps {
 export default function BlogCard({ post }: BlogCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setTimeout(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
       setShowContent(true);
     }, 200);
   };
@@ -26,6 +28,10 @@ export default function BlogCard({ post }: BlogCardProps) {
   const handleMouseLeave = () => {
     setIsHovered(false);
     setShowContent(false);
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
   };
 
   return (
