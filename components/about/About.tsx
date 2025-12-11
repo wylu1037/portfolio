@@ -5,6 +5,7 @@ import GridPattern from "../magicui/grid-pattern";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import Skill from "./Skill";
+import GitHubActivity from "./GitHubActivity";
 import Image from "next/image";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 
@@ -17,6 +18,7 @@ const About = () => {
           <WorkExperience />
           <Education />
           <Skill />
+          <GitHubActivity />
         </section>
       </Container>
       {/* Background Pattern */}
