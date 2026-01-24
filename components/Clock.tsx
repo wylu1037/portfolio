@@ -27,6 +27,23 @@ const Clock = ({ className }: ClockProps) => {
     return () => clearInterval(intervalId);
   }, []);
 
+
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="text-center">
+        <h2 className={cn("text-3xl font-bold text-transparent", className)}>
+          00:00:00
+        </h2>
+      </div>
+    );
+  }
+
   return (
     <div className="text-center">
       <h2 className={cn("text-3xl font-bold", className)}>

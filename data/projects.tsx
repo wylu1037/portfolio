@@ -180,10 +180,177 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Trusted Connector",
+      href: "https://merchant.chatcollect.com",
+      dates: "Nov 2025 - Present",
+      active: true,
+      hide: false,
+      description:
+        "The Trusted Connector is a core component of Trusted Data Space (TDS), serving as a secure data-sharing gateway between enterprises. it encompasses capabilities such as data connectivity, collection, delivery, usage control, trusted certification, and monitoring alerts.",
+      technologies: [
+        "Golang",
+        "PostgreSQL",
+        "Nginx",
+        "Docker",
+        "Ansible",
+        "Gorm",
+        "Fiber",
+        "DI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://dev.ttpark.cn/bs/mall/login",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/wylu1037/tds-connector-ui",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/projects/trusted-connector-web.png",
+      video: "",
+    },
+    {
+      title: "Blockchain Node Management Software",
+      href: "https://merchant.chatcollect.com",
+      dates: "Apr 2024 - Nov 2025",
+      active: true,
+      hide: false,
+      description:
+        "A comprehensive visual management platform for blockchain nodes, streamlining node deployment and operations while offering robust tools for contract management, proposal tracking, trusted certification, traceability, log monitoring, and a specialized developer center.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Golang",
+        "gRPC",
+        "RESTful",
+        "SQLite",
+        "Buf",
+        "Sqlc",
+        "Docker",
+        "DI",
+        "Ansible",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/wylu1037/go-grpc-web",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/projects/trusted-connector-web.png",
+      video: "",
+    },
+    {
+      title: "Blockchain Multi-language SDK",
+      href: "https://merchant.chatcollect.com",
+      dates: "May 2024 - Sep 2025",
+      active: true,
+      hide: false,
+      description:
+        "A high-performance SDK suite implemented across four languages (Go, TypeScript, Kotlin, Rust) to facilitate rapid blockchain integration. It provides comprehensive tools for cryptography, wallet management, dynamic ABI encoding/decoding, transaction lifecycle handling, and contract management.",
+      technologies: [
+        "Golang",
+        "TypeScript",
+        "Kotlin",
+        "Rust",
+        "ABI",
+        "Secp256k1",
+        "Sm2p256v1",
+        "Cache",
+        "Lock",
+      ],
+      links: [
+        {
+          type: "Go",
+          href: "https://github.com/wylu1037/lattice-go",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "JavaScript",
+          href: "https://github.com/wylu1037/lattice-js",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Kotlin",
+          href: "https://github.com/wylu1037/lattice-kt",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Rust",
+          href: "https://github.com/wylu1037/lattice-rs",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/projects/blockchain-multi-language-sdk.png",
+      video: "",
+    },
+    {
+      title: "Blockchain BaaS Platform",
+      href: "https://merchant.chatcollect.com",
+      dates: "Nov 2021 - Jul 2023",
+      active: true,
+      hide: false,
+      description:
+        "A comprehensive visual management platform for blockchain nodes, streamlining node deployment and operations while offering robust tools for contract management, proposal tracking, trusted certification, traceability, log monitoring, and a specialized developer center.",
+      technologies: [
+        "Java",
+        "SpringBoot",
+        "MySQL",
+        "Redis",
+        "Kafka",
+        "RESTful",
+        "Docker",
+        "Ansible",
+        "Liquibase",
+        "Gradle",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/wylu1037/go-grpc-web",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/projects/trusted-connector-web.png",
+      video: "",
+    },
+    {
+      title: "Merchant Center",
+      href: "https://merchant.chatcollect.com",
+      dates: "July 2020 - Nov 2021",
+      active: false,
+      hide: false,
+      description:
+        "This is a comprehensive B2B operations backend designed specifically for tenants within shopping malls or commercial complexes. Its primary function is to digitize the issuance and settlement of parking validations (coupons), while also facilitating financial reconciliation and customer relationship management.",
+      technologies: [
+        "Java",
+        "Spring Boot",
+        "Dubbo",
+        "MyBatis",
+        "MySQL",
+        "Redis",
+        "Apollo",
+        "Liquibase",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://dev.ttpark.cn/bs/mall/login",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/images/projects/merchant-center-web.png",
+      video: "",
+    },
+    {
       title: "Chat Collect",
       href: "https://chatcollect.com",
       dates: "Jan 2024 - Feb 2024",
       active: true,
+      hide: true,
       description:
         "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
       technologies: [
@@ -212,6 +379,7 @@ export const DATA = {
       href: "https://magicui.design",
       dates: "June 2023 - Present",
       active: true,
+      hide: true,
       description:
         "Designed, developed and sold animated UI components for developers.",
       technologies: [
@@ -244,6 +412,7 @@ export const DATA = {
       href: "https://llm.report",
       dates: "April 2023 - September 2023",
       active: true,
+      hide: true,
       description:
         "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
       technologies: [
@@ -277,6 +446,7 @@ export const DATA = {
       href: "https://automatic.chat",
       dates: "April 2023 - March 2024",
       active: true,
+      hide: true,
       description:
         "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
       technologies: [
