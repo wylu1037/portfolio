@@ -22,7 +22,11 @@ import useCopyToClipboard from "@/lib/hooks/use-copy-to-clipboard";
 import { useAction } from "next-safe-action/hooks";
 import { toast } from "sonner";
 import { sendEmailAction } from "@/actions/send-email";
+import { contactSchema } from "@/lib/schemas";
 import { Icon } from "@iconify/react";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 export default function Contact() {
   const { isCopied: isCopiedEmail, copyToClipboard: copyEmailToClipboard } =
@@ -44,8 +48,7 @@ export default function Contact() {
     onSuccess: ({ data }) => {
       if (data?.success) {
         toast.success("Message sent successfully!");
-        const form = document.querySelector("form") as HTMLFormElement;
-        form?.reset();
+        form.reset();
       } else {
         toast.error(data?.error || "Failed to send message");
       }
@@ -56,16 +59,18 @@ export default function Contact() {
     },
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      subject: formData.get("subject") as string,
-      message: formData.get("message") as string,
-      terms: formData.get("terms") === "on",
-    };
+  const form = useForm<z.infer<typeof contactSchema>>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      terms: false,
+    },
+  });
+
+  const onSubmit = (data: z.infer<typeof contactSchema>) => {
     execute(data);
   };
 
@@ -160,7 +165,7 @@ export default function Contact() {
 
             <div className="relative mt-8 rounded-xl">
               <motion.form
-                onSubmit={handleSubmit}
+                onSubmit={form.handleSubmit(onSubmit)}
                 className={cn(
                   "border-border/50 bg-background/50 space-y-6 rounded-xl border p-6",
                   "shadow-xs backdrop-blur-xs",
@@ -176,11 +181,15 @@ export default function Contact() {
                     </Label>
                     <Input
                       id="name"
-                      name="name"
                       placeholder="Your full name"
-                      required
                       className="border-border focus:border-border focus:ring-ring"
+                      {...form.register("name")}
                     />
+                    {form.formState.errors.name && (
+                      <p className="text-sm text-red-500">
+                        {form.formState.errors.name.message}
+                      </p>
+                    )}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-foreground">
@@ -188,12 +197,16 @@ export default function Contact() {
                     </Label>
                     <Input
                       id="email"
-                      name="email"
                       type="email"
                       placeholder="Your email address"
-                      required
                       className="border-border focus:border-border focus:ring-ring"
+                      {...form.register("email")}
                     />
+                    {form.formState.errors.email && (
+                      <p className="text-sm text-red-500">
+                        {form.formState.errors.email.message}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -201,27 +214,41 @@ export default function Contact() {
                   <Label htmlFor="subject" className="text-foreground">
                     Subject
                   </Label>
-                  <Select name="subject">
-                    <SelectTrigger className="border-border focus:border-border focus:ring-ring">
-                      <SelectValue placeholder="Select the purpose of contact" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="full-time">
-                        Full-time Opportunity
-                      </SelectItem>
-                      <SelectItem value="part-time">
-                        Part-time Position
-                      </SelectItem>
-                      <SelectItem value="remote">Remote Work</SelectItem>
-                      <SelectItem value="freelance">
-                        Freelance Project
-                      </SelectItem>
-                      <SelectItem value="collaboration">
-                        Collaboration
-                      </SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Controller
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger className="border-border focus:border-border focus:ring-ring">
+                          <SelectValue placeholder="Select the purpose of contact" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="full-time">
+                            Full-time Opportunity
+                          </SelectItem>
+                          <SelectItem value="part-time">
+                            Part-time Position
+                          </SelectItem>
+                          <SelectItem value="remote">Remote Work</SelectItem>
+                          <SelectItem value="freelance">
+                            Freelance Project
+                          </SelectItem>
+                          <SelectItem value="collaboration">
+                            Collaboration
+                          </SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {form.formState.errors.subject && (
+                    <p className="text-sm text-red-500">
+                      {form.formState.errors.subject.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -230,32 +257,49 @@ export default function Contact() {
                   </Label>
                   <Textarea
                     id="message"
-                    name="message"
                     placeholder="Enter your message"
-                    required
                     className="border-border focus:border-border focus:ring-ring min-h-[150px]"
+                    {...form.register("message")}
                   />
+                  {form.formState.errors.message && (
+                    <p className="text-sm text-red-500">
+                      {form.formState.errors.message.message}
+                    </p>
+                  )}
                 </div>
 
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="terms"
-                    name="terms"
-                    required
-                    className="border-border text-black"
-                  />
-                  <Label
-                    htmlFor="terms"
-                    className="text-muted-foreground text-sm"
-                  >
-                    I agree to the{" "}
-                    <Link
-                      href="#"
-                      className="text-muted-foreground hover:underline"
+                <div className="flex flex-col space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <Controller
+                      control={form.control}
+                      name="terms"
+                      render={({ field }) => (
+                        <Checkbox
+                          id="terms"
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                          className="border-border text-black"
+                        />
+                      )}
+                    />
+                    <Label
+                      htmlFor="terms"
+                      className="text-muted-foreground text-sm"
                     >
-                      Terms and Conditions
-                    </Link>
-                  </Label>
+                      I agree to the{" "}
+                      <Link
+                        href="#"
+                        className="text-muted-foreground hover:underline"
+                      >
+                        Terms and Conditions
+                      </Link>
+                    </Label>
+                  </div>
+                  {form.formState.errors.terms && (
+                    <p className="text-sm text-red-500">
+                      {form.formState.errors.terms.message}
+                    </p>
+                  )}
                 </div>
 
                 <Button
