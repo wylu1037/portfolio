@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -20,29 +19,54 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Wrapper from "@/components/shared/Wrapper";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import useCopyToClipboard from "@/lib/hooks/use-copy-to-clipboard";
+import { useAction } from "next-safe-action/hooks";
+import { toast } from "sonner";
+import { sendEmailAction } from "@/actions/send-email";
 import { Icon } from "@iconify/react";
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const { isCopied: isCopiedEmail, copyToClipboard: copyEmailToClipboard } =
     useCopyToClipboard({ timeout: 2000 });
   const { isCopied: isCopiedPhone, copyToClipboard: copyPhoneToClipboard } =
     useCopyToClipboard({ timeout: 2000 });
+
   const onCopyEmail = () => {
     if (isCopiedEmail) return;
     copyEmailToClipboard("wylu1037@gmail.com", "Email");
   };
+
   const onCopyPhone = () => {
     if (isCopiedPhone) return;
     copyPhoneToClipboard("+86 155 4947 2950", "Phone");
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const { execute, isExecuting } = useAction(sendEmailAction, {
+    onSuccess: ({ data }) => {
+      if (data?.success) {
+        toast.success("Message sent successfully!");
+        const form = document.querySelector("form") as HTMLFormElement;
+        form?.reset();
+      } else {
+        toast.error(data?.error || "Failed to send message");
+      }
+    },
+    onError: ({ error }) => {
+      toast.error("An error occurred while sending the message.");
+      console.error(error);
+    },
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+      terms: formData.get("terms") === "on",
+    };
+    execute(data);
   };
 
   return (
@@ -57,7 +81,7 @@ export default function Contact() {
           <div className="space-y-8">
             <div>
               <motion.h1
-                className="mb-2 text-3xl font-bold text-foreground"
+                className="text-foreground mb-2 text-3xl font-bold"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
@@ -65,7 +89,7 @@ export default function Contact() {
                 Let&apos;s Connect
               </motion.h1>
               <motion.p
-                className="text-lg text-muted-foreground"
+                className="text-muted-foreground text-lg"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
@@ -85,25 +109,25 @@ export default function Contact() {
                 onClick={onCopyEmail}
                 className={cn(
                   "group flex items-center justify-between",
-                  "rounded-lg bg-secondary/40 p-4 transition-all",
+                  "bg-secondary/40 rounded-lg p-4 transition-all",
                   "hover:bg-secondary/60 dark:bg-secondary/20 dark:hover:bg-secondary/30",
                   "backdrop-blur-xs",
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <div className="rounded-md bg-background p-2 ring-1 ring-border/40">
+                  <div className="bg-background ring-border/40 rounded-md p-2 ring-1">
                     <Icon
                       icon="lucide:mail"
-                      className="h-5 w-5 text-foreground/80"
+                      className="text-foreground/80 h-5 w-5"
                     />
                   </div>
-                  <span className="font-medium text-foreground">
+                  <span className="text-foreground font-medium">
                     wylu1037@gmail.com
                   </span>
                 </div>
                 <Icon
                   icon="lucide:copy"
-                  className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                  className="text-muted-foreground h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
                 />
               </button>
 
@@ -111,25 +135,25 @@ export default function Contact() {
                 onClick={onCopyPhone}
                 className={cn(
                   "group flex items-center justify-between",
-                  "rounded-lg bg-secondary/40 p-4 transition-all",
+                  "bg-secondary/40 rounded-lg p-4 transition-all",
                   "hover:bg-secondary/60 dark:bg-secondary/20 dark:hover:bg-secondary/30",
                   "backdrop-blur-xs",
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <div className="rounded-md bg-background p-2 ring-1 ring-border/40">
+                  <div className="bg-background ring-border/40 rounded-md p-2 ring-1">
                     <Icon
                       icon="lucide:phone"
-                      className="h-5 w-5 text-foreground/80"
+                      className="text-foreground/80 h-5 w-5"
                     />
                   </div>
-                  <span className="font-medium text-foreground">
+                  <span className="text-foreground font-medium">
                     +86 155 4947 2950
                   </span>
                 </div>
                 <Icon
                   icon="lucide:copy"
-                  className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                  className="text-muted-foreground h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
                 />
               </button>
             </motion.div>
@@ -138,7 +162,7 @@ export default function Contact() {
               <motion.form
                 onSubmit={handleSubmit}
                 className={cn(
-                  "space-y-6 rounded-xl border border-border/50 bg-background/50 p-6",
+                  "border-border/50 bg-background/50 space-y-6 rounded-xl border p-6",
                   "shadow-xs backdrop-blur-xs",
                 )}
                 initial={{ opacity: 0, y: 20 }}
@@ -152,6 +176,7 @@ export default function Contact() {
                     </Label>
                     <Input
                       id="name"
+                      name="name"
                       placeholder="Your full name"
                       required
                       className="border-border focus:border-border focus:ring-ring"
@@ -163,6 +188,7 @@ export default function Contact() {
                     </Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="Your email address"
                       required
@@ -175,7 +201,7 @@ export default function Contact() {
                   <Label htmlFor="subject" className="text-foreground">
                     Subject
                   </Label>
-                  <Select>
+                  <Select name="subject">
                     <SelectTrigger className="border-border focus:border-border focus:ring-ring">
                       <SelectValue placeholder="Select the purpose of contact" />
                     </SelectTrigger>
@@ -204,21 +230,23 @@ export default function Contact() {
                   </Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Enter your message"
                     required
-                    className="min-h-[150px] border-border focus:border-border focus:ring-ring"
+                    className="border-border focus:border-border focus:ring-ring min-h-[150px]"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
                   <Checkbox
                     id="terms"
+                    name="terms"
                     required
                     className="border-border text-black"
                   />
                   <Label
                     htmlFor="terms"
-                    className="text-sm text-muted-foreground"
+                    className="text-muted-foreground text-sm"
                   >
                     I agree to the{" "}
                     <Link
@@ -232,10 +260,10 @@ export default function Contact() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-foreground text-background transition-colors hover:bg-foreground hover:text-background dark:bg-blue-500 dark:font-semibold dark:text-white"
-                  disabled={isSubmitting}
+                  className="bg-foreground text-background hover:text-background w-full transition-colors hover:bg-blue-700 dark:bg-blue-700 dark:font-semibold dark:text-white hover:dark:bg-blue-600"
+                  disabled={isExecuting}
                 >
-                  {isSubmitting ? (
+                  {isExecuting ? (
                     "Sending..."
                   ) : (
                     <span className="flex items-center justify-center">
