@@ -4,11 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
-import { useSnow } from "@/components/snow/SnowContext";
 
 const Header = () => {
-  const { isSnowing, toggleSnow } = useSnow();
-
   return (
     <header className="relative z-50">
       <nav
@@ -37,23 +34,6 @@ const Header = () => {
             <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/blog">Blog</NavLink>
           </div>
-
-          {/* Snow Toggle Button */}
-          <button
-            onClick={toggleSnow}
-            className={cn(
-              "rounded-lg p-1.5 transition-colors duration-300",
-              isSnowing
-                ? "text-blue-400"
-                : "text-foreground/80 hover:text-foreground",
-            )}
-            aria-label={isSnowing ? "Stop snow" : "Let it snow"}
-          >
-            <Icon
-              icon={isSnowing ? "mingcute:snow-fill" : "mingcute:snow-line"}
-              className="h-4 w-4 transition-transform duration-300 hover:rotate-45"
-            />
-          </button>
 
           {/* Contact Button */}
           <NavLink

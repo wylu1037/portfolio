@@ -8,6 +8,7 @@ import { Toaster } from "sonner";
 import { Inter, Monoton } from "next/font/google";
 import { SnowProvider } from "@/components/snow/SnowContext";
 import SnowEffect from "@/components/snow/SnowEffect";
+import SnowToggleButton from "@/components/snow/SnowToggleButton";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -49,6 +50,7 @@ export default function RootLayout({
             <Toaster expand={false} position="top-right" />
             <Header />
             <SnowEffect />
+            <SnowToggleButton />
             <main className="grow">{children}</main>
             <Footer />
           </SnowProvider>
