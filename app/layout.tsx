@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { Inter, Monoton } from "next/font/google";
+import { SnowProvider } from "@/components/snow/SnowContext";
+import SnowEffect from "@/components/snow/SnowEffect";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -43,10 +45,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${monoton.variable} relative flex min-h-screen flex-col antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <Toaster expand={false} position="top-right" />
-          <Header />
-          <main className="grow">{children}</main>
-          <Footer />
+          <SnowProvider>
+            <Toaster expand={false} position="top-right" />
+            <Header />
+            <SnowEffect />
+            <main className="grow">{children}</main>
+            <Footer />
+          </SnowProvider>
         </ThemeProvider>
       </body>
     </html>
