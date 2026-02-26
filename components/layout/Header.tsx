@@ -2,6 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 
@@ -36,15 +38,15 @@ const Header = () => {
           </div>
 
           {/* Contact Button */}
-          <NavLink
+          <Link
             href="/contact"
             className={cn(
-              "ml-2 bg-linear-to-tr from-blue-800 to-blue-500 px-4 py-1.5 text-sm font-medium text-white",
-              "transition-transform duration-300 hover:-translate-y-0.5 dark:text-white",
+              "relative ml-2 rounded-lg bg-linear-to-tr from-blue-800 to-blue-500 px-4 py-1.5 text-sm font-medium text-white",
+              "shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] transition-transform duration-300 hover:-translate-y-0.5",
             )}
           >
             Contact
-          </NavLink>
+          </Link>
         </div>
       </nav>
     </header>
@@ -60,17 +62,35 @@ const NavLink = ({
   children: React.ReactNode;
   className?: string;
 }) => {
+  const pathname = usePathname();
+  const isActive =
+    href === "/" ? pathname === href : pathname?.startsWith(href);
+
   return (
     <Link
       href={href}
       className={cn(
-        "font-inter relative rounded-lg px-3 py-1.5 text-sm font-medium",
-        "text-foreground/90 transition-colors duration-300",
-        "dark:text-foreground/80 dark:hover:text-foreground",
+        "relative rounded-lg px-3 py-1.5 text-sm font-medium",
+        "transition-colors duration-300",
+        isActive
+          ? "text-slate-900 dark:text-white"
+          : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white",
         className,
       )}
     >
-      {children}
+      {isActive && (
+        <motion.div
+          layoutId="active-nav-pill"
+          className="absolute inset-0 -z-10 rounded-lg bg-slate-200/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-md dark:bg-white/10"
+          initial={false}
+          transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 35,
+          }}
+        />
+      )}
+      <span className="relative z-10">{children}</span>
     </Link>
   );
 };
