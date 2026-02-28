@@ -25,27 +25,6 @@ const Footer = memo(() => {
                 © {new Date().getFullYear()} WenyangLu™. All rights reserved.
               </p>
             </div>
-            {/* Links */}
-            <div className="mt-4 flex space-x-3 text-sm">
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Status
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/privacy-policy"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Privacy Policy
-              </Link>
-            </div>
             {/* Social Links */}
             <div className="mt-4 mb-1 flex space-x-4">
               <Link
