@@ -10,11 +10,12 @@ const Home = () => {
     <Wrapper className="mt-28 bg-transparent">
       {/* Main Section */}
       <Container>
-        <section className="mb-12 flex flex-col gap-12">
+        <section className="mb-24 flex flex-col gap-24">
           <Hero />
           <Offerings />
         </section>
       </Container>
+
       {/* Background Pattern */}
       <DotPattern
         width={16}
